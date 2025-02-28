@@ -14,3 +14,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Test2" type="PopupMenu" parent="."]
+
+[node name="Test3" type="Node2D" parent="."]
