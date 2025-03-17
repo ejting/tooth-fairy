@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckrexfxacvftu"]
+
+[ext_resource type="Script" path="res://scripts/player/player_movement.gd" id="1_6u2n3"]
+[ext_resource type="Shader" path="res://shaders/pixel.gdshader" id="2_p0jnh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hbap6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_blcv1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pcx2"]
+shader = ExtResource("2_p0jnh")
+shader_parameter/shake = 0.015
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0045
+shader_parameter/colorOffsetIntensity = 0.2
+shader_parameter/pixelSize = 200.0
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_awfgo"]
+material = SubResource("ShaderMaterial_8pcx2")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera_pivot", "camera", "pixel_cam")]
+script = ExtResource("1_6u2n3")
+camera_pivot = NodePath("CameraShakeLayer/CameraPivot")
+camera = NodePath("CameraShakeLayer/CameraPivot/Camera3D")
+pixel_cam = NodePath("ShaderSubViewport/SubViewport/PixelCamera")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hbap6")
+
+[node name="TempShape" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_blcv1")
+
+[node name="CameraShakeLayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475435, 0)
+
+[node name="CameraPivot" type="Node3D" parent="CameraShakeLayer"]
+
+[node name="Camera3D" type="Camera3D" parent="CameraShakeLayer/CameraPivot"]
+
+[node name="ShaderSubViewport" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="ShaderSubViewport"]
+handle_input_locally = false
+size = Vector2i(288, 162)
+render_target_update_mode = 4
+
+[node name="PixelCamera" type="Camera3D" parent="ShaderSubViewport/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475435, 0)
+current = true
+
+[node name="PostProcessingEffects" type="MeshInstance3D" parent="ShaderSubViewport/SubViewport/PixelCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.475435, 0)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_awfgo")
+skeleton = NodePath("../../..")
