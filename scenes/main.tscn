@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=6 format=3 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="PackedScene" uid="uid://c8j1gk4nb76oi" path="res://models/human1.glb" id="2_2olgs"]
+[ext_resource type="PackedScene" uid="uid://bnmevo3drya3w" path="res://models/house_model/house_model.glb" id="3_17kpk"]
+[ext_resource type="PackedScene" uid="uid://c267ah24msw8d" path="res://models/second_floor/second_floor.glb" id="4_27ohx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclx6"]
 albedo_color = Color(0.0980392, 0.0980392, 0.690196, 1)
@@ -17,10 +19,6 @@ use_collision = true
 transform = Transform3D(5.68998, 0, 0, 0, 3.73208, 0, 0, 0, 5.20502, -8.35946, -2.22575, -2.75533)
 use_collision = true
 
-[node name="TestBox" type="CSGBox3D" parent="."]
-transform = Transform3D(2.38537, 0, 0, 0, 1.93186, 0, 0, 0, 2.28145, 5.11742, -1.33249, -3.19003)
-use_collision = true
-
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_uuefp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016645, -1.64217, -0.00112152)
 
@@ -30,3 +28,10 @@ use_collision = true
 
 [node name="human1" parent="." instance=ExtResource("2_2olgs")]
 transform = Transform3D(-0.746894, 0, 0.664944, 0, 1, 0, -0.664944, 0, -0.746894, -2.22594, -2.63058, 2.29902)
+
+[node name="house_model" parent="." instance=ExtResource("3_17kpk")]
+transform = Transform3D(0.0119489, 0, 0, 0, 0.0119489, 0, 0, 0, 0.0119489, -7.01354, -2.5233, -20.7244)
+
+[node name="second_floor" parent="." instance=ExtResource("4_27ohx")]
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -6.18452, 0.461163, -20.6933)
+visible = false
