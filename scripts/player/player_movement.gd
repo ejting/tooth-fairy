@@ -27,6 +27,8 @@ const BOB_WALK_FREQUENCY = 2.0
 const BOB_WALK_AMPLITUDE = 0.04
 var t_bob = 0.0
 
+var locked_in_dialogue : bool = false
+
 # Grabs the gravity value from the project
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -35,9 +37,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
-	print("Test")
-	if(event is InputEventMouseMotion):
-		
+	if(event is InputEventMouseMotion && !locked_in_dialogue):
 		camera_pivot.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_Y_HEAD_LOCK, MAX_Y_HEAD_LOCK)
@@ -49,6 +49,8 @@ func _process(delta):
 # This will be called every frame
 # to handle our player movement
 func _physics_process(delta):
+	if(locked_in_dialogue):
+		return
 	if(not is_on_floor()):
 		# Smoothly makes the player fall
 		velocity.y -= gravity * delta
