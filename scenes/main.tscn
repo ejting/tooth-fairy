@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=9 format=3 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="PackedScene" uid="uid://c8j1gk4nb76oi" path="res://models/human1.glb" id="2_2olgs"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/test_interact.gd" id="2_g5lho"]
-[ext_resource type="PackedScene" uid="uid://bnmevo3drya3w" path="res://models/house_model/house_model.glb" id="3_17kpk"]
 [ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="3_a5rmb"]
-[ext_resource type="PackedScene" uid="uid://c267ah24msw8d" path="res://models/second_floor/second_floor.glb" id="4_27ohx"]
+[ext_resource type="PackedScene" uid="uid://d2c3cqi2n11mh" path="res://scenes/model_scenes/final_house_model.tscn" id="5_kdqbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclx6"]
 albedo_color = Color(0.0980392, 0.0980392, 0.690196, 1)
@@ -51,12 +50,6 @@ collision_mask = 0
 [node name="human1" parent="." instance=ExtResource("2_2olgs")]
 transform = Transform3D(-0.746894, 0, 0.664944, 0, 1, 0, -0.664944, 0, -0.746894, -2.22594, -2.63058, 2.29902)
 
-[node name="house_model" parent="." instance=ExtResource("3_17kpk")]
-transform = Transform3D(0.0119489, 0, 0, 0, 0.0119489, 0, 0, 0, 0.0119489, -7.01354, -2.5233, -20.7244)
-
-[node name="second_floor" parent="." instance=ExtResource("4_27ohx")]
-transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -7.2534, 0.588618, -20.7646)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_orfsa")
 
@@ -64,3 +57,8 @@ environment = SubResource("Environment_orfsa")
 transform = Transform3D(1, 0, 0, 0, 0.0942994, 0.995544, 0, -0.995544, 0.0942994, -3.52601, -0.935989, -6.71827)
 light_energy = 0.5
 sky_mode = 1
+
+[node name="final_house_model" parent="." instance=ExtResource("5_kdqbi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85123, -2.61012, -25.2651)
+
+[editable path="final_house_model"]
