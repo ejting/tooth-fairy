@@ -39,6 +39,7 @@ use_collision = true
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("2_g5lho")
+inter_name = "Test"
 dialogue_objects = Array[ExtResource("3_a5rmb")]([SubResource("Resource_x83ln")])
 
 [node name="TestSphere2" type="CSGSphere3D" parent="."]
@@ -59,6 +60,6 @@ light_energy = 0.5
 sky_mode = 1
 
 [node name="final_house_model" parent="." instance=ExtResource("5_kdqbi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85123, -2.61012, -25.2651)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85123, -2.45246, -25.2651)
 
 [editable path="final_house_model"]
