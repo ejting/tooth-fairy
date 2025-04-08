@@ -5,6 +5,8 @@ class_name DialogueManager extends Control
 @export var labels : Array[Label]
 @export_range(0, 0.5, 0.001) var delay_time : float = 0.025
 @export var informative_label : Label
+@export var name_label : Label
+@export var interact_label : Label
 var label_index : int = 0
 
 var accum_time : float = 0.0
@@ -24,6 +26,25 @@ var punc_delay_time : float
 
 var ref : Interactable
 
+func _ready():
+	informative_label.hide()
+	hide()
+	change_font_size()
+	
+func change_font_size():
+	var window_width = get_viewport().size.x
+	var dialouge_window_size = (window_width / 7.4)
+	size.y = dialouge_window_size
+	#position.y = 648 - dialouge_window_size
+	var font_size = window_width / 63
+	print("The font size is ", font_size)
+	interact_label.add_theme_font_size_override("font_size", font_size)
+	name_label.add_theme_font_size_override("font_size", font_size)
+	informative_label.add_theme_font_size_override("font_size", font_size)
+	for i in range(labels.size()):
+		labels[i].add_theme_font_size_override("font_size", font_size)
+
+
 func lock_down_player():
 	player_ref.locked_in_dialogue = true
 	
@@ -40,6 +61,9 @@ func reset(ref : Interactable):
 
 func type_message(message_to_type : String, speed: float = 0.025):
 	# Show this
+	# Set up the name of the obj
+	if(ref != null):
+		name_label.text = "[" + ref.inter_name + "]"
 	resolved = false
 	informative_label.hide()
 	show()
@@ -55,7 +79,8 @@ func finish_message():
 	hide()
 	resolved = true
 	## Tells the reference interactable that they can continue now
-	ref.finished_dialouge(self)
+	if(ref != null):
+		ref.finished_dialouge(self)
 
 func _process(delta) -> void:
 	if(typing):
@@ -79,4 +104,5 @@ func _process(delta) -> void:
 	elif(!resolved):
 		if(Input.is_action_just_pressed("spacebar")):
 			finish_message()
-		
+	if(Input.is_action_just_pressed("spacebar")):
+		change_font_size()
