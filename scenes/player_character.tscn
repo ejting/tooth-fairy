@@ -35,13 +35,15 @@ camera = NodePath("CameraShakeLayer/CameraPivot/Camera3D")
 pixel_cam = NodePath("UI/ShaderSubViewport/SubViewport/PixelCamera")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_hbap6")
 
 [node name="TempShape" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_blcv1")
 
 [node name="CameraShakeLayer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475435, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863591, 0)
 
 [node name="CameraPivot" type="Node3D" parent="CameraShakeLayer"]
 
@@ -53,7 +55,7 @@ target_position = Vector3(0, 0, -3)
 collision_mask = 8
 collide_with_areas = true
 script = ExtResource("2_efb6m")
-interact_label = NodePath("../../../../UI/Label")
+interact_label = NodePath("../../../../UI/InteractLabel")
 dm_ref = NodePath("../../../../UI/DialougeUI")
 
 [node name="UI" type="Control" parent="."]
@@ -91,7 +93,7 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_awfgo")
 skeleton = NodePath("../../..")
 
-[node name="Label" type="Label" parent="UI"]
+[node name="InteractLabel" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,37 +110,69 @@ text = "Press [F] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialougeUI" type="Control" parent="UI" node_paths=PackedStringArray("player_ref", "labels", "informative_label")]
+[node name="DialougeUI" type="Control" parent="UI" node_paths=PackedStringArray("player_ref", "labels", "informative_label", "name_label", "interact_label")]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -200.0
-offset_right = -100.0
+offset_left = 200.0
+offset_top = 493.0
+offset_right = -200.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("4_5q0pd")
 player_ref = NodePath("../..")
 labels = [NodePath("Text")]
 informative_label = NodePath("InformativeText")
+name_label = NodePath("NameText")
+interact_label = NodePath("../InteractLabel")
+
+[node name="ColorRect" type="ColorRect" parent="UI/DialougeUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078815, 0.078815, 0.078815, 1)
 
 [node name="Text" type="Label" parent="UI/DialougeUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -73.0
+offset_right = 0.5
+offset_bottom = -50.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+vertical_alignment = 1
+
+[node name="NameText" type="Label" parent="UI/DialougeUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -23.0
+offset_right = 263.0
+grow_vertical = 0
+text = "[Character Name]"
 
 [node name="InformativeText" type="Label" parent="UI/DialougeUI"]
-visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 167.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -233.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "Press [spacebar] to continue..."
+horizontal_alignment = 2
