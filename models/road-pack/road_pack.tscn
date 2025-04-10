@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdepxtvxvufhl"]
-
-[ext_resource type="PackedScene" uid="uid://cqqhs35lmtjxo" path="res://models/road-pack/source/road pack.glb" id="1_lxt7e"]
-
-[node name="road pack" instance=ExtResource("1_lxt7e")]
