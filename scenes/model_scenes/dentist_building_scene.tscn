@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dafhqwvqy3o44"]
+
+[ext_resource type="PackedScene" uid="uid://cotv6b6qu6h4m" path="res://models/alley_way/dark_alley.glb" id="1_i36yu"]
+[ext_resource type="PackedScene" uid="uid://co4b8805bksmd" path="res://models/long_road/road.glb" id="2_iiy0a"]
+
+[node name="DentistBuildingScene" type="Node3D"]
+
+[node name="alley_way_model" parent="." instance=ExtResource("1_i36yu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_iiy0a")]
