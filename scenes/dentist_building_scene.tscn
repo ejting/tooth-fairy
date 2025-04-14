@@ -390,7 +390,7 @@ spot_angle = 89.99
 spot_angle_attenuation = 1.56917
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_mn57p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.912, 1.00137, -22.5735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8533, 1.00137, -53.7494)
 
 [node name="ParkingLot" parent="." instance=ExtResource("4_x2g1v")]
 transform = Transform3D(-5.68248e-07, 0, -13, 0, 13, 0, 13, 0, -5.68248e-07, 49.2811, -1.24318, -38.0905)
