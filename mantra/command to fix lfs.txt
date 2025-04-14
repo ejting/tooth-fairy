@@ -1,0 +1,1 @@
+git lfs install --skip-smudge; git lfs track "*.glb"; git add .gitattributes "*.glb"; git commit -m "MESSAGE"; git lfs uninstall; git push

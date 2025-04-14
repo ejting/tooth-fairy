@@ -1421,7 +1421,7 @@ bones/36/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/36/scale = Vector3(1, 1, 1)
 
 [node name="tooth_10" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_10"
 bone_idx = 2
 
@@ -1430,7 +1430,7 @@ mesh = SubResource("ArrayMesh_atis6")
 skeleton = NodePath("")
 
 [node name="tooth_11" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_11"
 bone_idx = 3
 
@@ -1439,7 +1439,7 @@ mesh = SubResource("ArrayMesh_yxjyd")
 skeleton = NodePath("")
 
 [node name="tooth_12" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_12"
 bone_idx = 4
 
@@ -1448,7 +1448,7 @@ mesh = SubResource("ArrayMesh_1i5b6")
 skeleton = NodePath("")
 
 [node name="tooth_13" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_13"
 bone_idx = 5
 
@@ -1457,7 +1457,7 @@ mesh = SubResource("ArrayMesh_2t2rv")
 skeleton = NodePath("")
 
 [node name="tooth_14" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_14"
 bone_idx = 6
 
@@ -1466,7 +1466,7 @@ mesh = SubResource("ArrayMesh_nqfrw")
 skeleton = NodePath("")
 
 [node name="tooth_15" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_15"
 bone_idx = 7
 
@@ -1475,7 +1475,7 @@ mesh = SubResource("ArrayMesh_k5at3")
 skeleton = NodePath("")
 
 [node name="tooth_2" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.22804, 1.5799, 1.57131)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, -1.22804, 1.5799, 1.57131)
 bone_name = "tooth_2"
 bone_idx = 8
 
@@ -1484,7 +1484,7 @@ mesh = SubResource("ArrayMesh_alvl4")
 skeleton = NodePath("")
 
 [node name="tooth_3" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.21578, 1.57353, 1.90104)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, -1.21579, 1.57353, 1.90104)
 bone_name = "tooth_3"
 bone_idx = 9
 
@@ -1493,7 +1493,7 @@ mesh = SubResource("ArrayMesh_20gx8")
 skeleton = NodePath("")
 
 [node name="tooth_4" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_4"
 bone_idx = 10
 
@@ -1502,7 +1502,7 @@ mesh = SubResource("ArrayMesh_sjau4")
 skeleton = NodePath("")
 
 [node name="tooth_5" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_5"
 bone_idx = 11
 
@@ -1511,7 +1511,7 @@ mesh = SubResource("ArrayMesh_dbhbv")
 skeleton = NodePath("")
 
 [node name="tooth_6" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_6"
 bone_idx = 12
 
@@ -1520,7 +1520,7 @@ mesh = SubResource("ArrayMesh_lflxd")
 skeleton = NodePath("")
 
 [node name="tooth_7" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_7"
 bone_idx = 13
 
@@ -1529,7 +1529,7 @@ mesh = SubResource("ArrayMesh_pjoj6")
 skeleton = NodePath("")
 
 [node name="tooth_8" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_8"
 bone_idx = 14
 
@@ -1538,7 +1538,7 @@ mesh = SubResource("ArrayMesh_kqcro")
 skeleton = NodePath("")
 
 [node name="tooth_9" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 bone_name = "tooth_9"
 bone_idx = 15
 
@@ -1547,7 +1547,7 @@ mesh = SubResource("ArrayMesh_673ia")
 skeleton = NodePath("")
 
 [node name="wet_mouth_layer_top" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, -9.37056e-07, -4.83138e-07, 4.85525e-07, 46.8071, -4.29153e-06, 1.57341e-07, 9.53674e-07, 46.8071, -1.59307e-08, 1.00081, 1.3126)
+transform = Transform3D(46.8071, -2.705e-06, 8.62728e-08, 2.5451e-06, 46.8071, -1.09673e-05, -8.30132e-08, 8.58307e-06, 46.8071, 9.70078e-08, 1.00082, 1.3126)
 visible = false
 bone_name = "wet_mouth_layer_top"
 bone_idx = 16
@@ -1557,7 +1557,7 @@ mesh = SubResource("ArrayMesh_hnflp")
 skeleton = NodePath("")
 
 [node name="tooth_18" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_18"
 bone_idx = 18
 
@@ -1566,7 +1566,7 @@ mesh = SubResource("ArrayMesh_e5se7")
 skeleton = NodePath("")
 
 [node name="tooth_19" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_19"
 bone_idx = 19
 
@@ -1575,7 +1575,7 @@ mesh = SubResource("ArrayMesh_xi88r")
 skeleton = NodePath("")
 
 [node name="tooth_20" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_20"
 bone_idx = 20
 
@@ -1584,7 +1584,7 @@ mesh = SubResource("ArrayMesh_f85h2")
 skeleton = NodePath("")
 
 [node name="tooth_21" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_21"
 bone_idx = 21
 
@@ -1593,7 +1593,7 @@ mesh = SubResource("ArrayMesh_vx7nr")
 skeleton = NodePath("")
 
 [node name="tooth_22" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_22"
 bone_idx = 22
 
@@ -1602,7 +1602,7 @@ mesh = SubResource("ArrayMesh_xptbj")
 skeleton = NodePath("")
 
 [node name="tooth_23" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_23"
 bone_idx = 23
 
@@ -1611,7 +1611,7 @@ mesh = SubResource("ArrayMesh_xx5pj")
 skeleton = NodePath("")
 
 [node name="tooth_24" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_24"
 bone_idx = 24
 
@@ -1620,7 +1620,7 @@ mesh = SubResource("ArrayMesh_pexhb")
 skeleton = NodePath("")
 
 [node name="tooth_25" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_25"
 bone_idx = 25
 
@@ -1629,7 +1629,7 @@ mesh = SubResource("ArrayMesh_a4n5s")
 skeleton = NodePath("")
 
 [node name="tooth_26" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_26"
 bone_idx = 26
 
@@ -1638,7 +1638,7 @@ mesh = SubResource("ArrayMesh_g84ad")
 skeleton = NodePath("")
 
 [node name="tooth_27" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_27"
 bone_idx = 27
 
@@ -1647,7 +1647,7 @@ mesh = SubResource("ArrayMesh_u8ed0")
 skeleton = NodePath("")
 
 [node name="tooth_28" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_28"
 bone_idx = 28
 
@@ -1656,7 +1656,7 @@ mesh = SubResource("ArrayMesh_aaq32")
 skeleton = NodePath("")
 
 [node name="tooth_29" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_29"
 bone_idx = 29
 
@@ -1665,7 +1665,7 @@ mesh = SubResource("ArrayMesh_di8xa")
 skeleton = NodePath("")
 
 [node name="tooth_30" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_30"
 bone_idx = 30
 
@@ -1674,7 +1674,7 @@ mesh = SubResource("ArrayMesh_6dr0j")
 skeleton = NodePath("")
 
 [node name="tooth_31" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 bone_name = "tooth_31"
 bone_idx = 31
 
@@ -1683,7 +1683,7 @@ mesh = SubResource("ArrayMesh_5x1he")
 skeleton = NodePath("")
 
 [node name="wet_mouth_layer_bottom" type="BoneAttachment3D" parent="Teeth/Armature/Skeleton3D"]
-transform = Transform3D(46.8071, 1.21072e-07, -1.53668e-08, -4.5076e-07, 46.8071, 1.52588e-05, -1.89058e-07, -2.28882e-05, 46.8071, 0.0053077, 1.12513, 2.17405)
+transform = Transform3D(46.8071, -3.66755e-06, 3.19444e-07, 3.52226e-06, 46.8071, -8.39233e-05, -3.5204e-07, 8.01086e-05, 46.8071, 0.00530757, 1.12513, 2.17405)
 visible = false
 bone_name = "wet_mouth_layer_bottom"
 bone_idx = 32
