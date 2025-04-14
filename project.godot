@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="Tooth Fairy"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/dentist_building_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="res://scenes/main.tscn"
 
 [autoload]
 
@@ -66,4 +67,8 @@ spacebar={
 
 [layer_names]
 
+3d_render/layer_3="LightingIndoor"
+3d_render/layer_10="hide_from_camera"
+3d_physics/layer_3="Wall"
 3d_physics/layer_4="Interactable"
+3d_physics/layer_7="Player"
