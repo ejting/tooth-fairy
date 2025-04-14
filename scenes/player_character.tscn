@@ -58,8 +58,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 [node name="Skeleton3D" parent="PlayerModel/Armature" index="0"]
 bones/5/position = Vector3(14.8746, 6.25278e-13, -6.50188e-07)
 bones/5/rotation = Quaternion(2.78576e-05, -9.07055e-06, 0.92694, 0.375209)
-bones/5/scale = Vector3(1, 1, 1)
-bones/7/scale = Vector3(1, 1, 1)
 
 [node name="rp_eric_rigged_001_geo" parent="PlayerModel/Armature/Skeleton3D" index="0"]
 layers = 512
