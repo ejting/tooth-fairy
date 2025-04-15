@@ -1,8 +1,5 @@
 extends Interactable
 
-func _ready():
-	inter_name = "Test"
-
 func on_interact(dm_ref : DialogueManager):
 	super(dm_ref)
 	dm_ref.reset(self)

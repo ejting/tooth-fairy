@@ -9,6 +9,7 @@ class_name Player extends CharacterBody3D
 @export var camera : Camera3D
 @export var pixel_cam : Camera3D
 @export var model : Node3D
+@export var dm_ref : DialogueManager
 
 @export var SENSITIVITY = 0.003
 
@@ -37,6 +38,8 @@ const BOB_WALK_AMPLITUDE = 0.04
 var t_bob = 0.0
 
 var locked_in_dialogue : bool = false
+var looking_at : bool = false
+var look_at_obj : Node3D
 
 # Grabs the gravity value from the project
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -53,6 +56,18 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, MIN_Y_HEAD_LOCK, MAX_Y_HEAD_LOCK)
 
 func _process(delta):
+	if(looking_at):
+		## TODO make this rotation work
+		looking_at = false
+		#var direction = (position - look_at_obj.position).normalized()
+		#var dot_product = look_at_obj.global_transform.basis.z.dot(direction)
+		#var angle = acos(dot_product)
+		#var to_vec = Vector3(0, angle, 0)
+		#camera.rotation = lerp(camera.rotation, camera.rotation + to_vec, delta * 0.1)
+		#if(camera.rotation.distance_to(to_vec) <= 0.1):
+			# stop rotating when we are looking at the thing
+		#	camera.rotation = to_vec
+		#	looking_at = false
 	pixel_cam.global_transform = camera.global_transform
 
 
@@ -115,8 +130,11 @@ func save_camera_pos_for_smoothing():
 	#if(saved_camera_global_pos == null):
 	#	saved_camera_global_pos = smoothing_camera_node.global_position
 	pass
-	
 
+func look_at_given_pos(to_look_at : Node3D):
+	look_at_obj = to_look_at
+	looking_at = true
+	
 func slide_camera_smooth_back_to_origin(delta):
 	if(saved_camera_global_pos == null):
 		return

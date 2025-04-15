@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="DialogueObject" load_steps=2 format=3 uid="uid://cx04no61m88x8"]
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=3 format=3 uid="uid://cx04no61m88x8"]
 
 [ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="1_4oqbo"]
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_coiah"]
 
 [resource]
 script = ExtResource("1_4oqbo")
 description = ""
-dialogue = Array[String](["do you love me?"])
-voice_line = 0
-dialouge_speed = 1.0
+dialogue = Array[ExtResource("1_coiah")]([])
 response_options_available = true
 response_button_titles = Array[String](["No", "Yes", "Hell no"])

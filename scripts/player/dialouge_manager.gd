@@ -61,6 +61,9 @@ func _timer_remove_all_signal(func_call : Callable):
 func lock_down_player():
 	player_ref.locked_in_dialogue = true
 	
+func force_player_to_look_at(look_at : Node3D):
+	player_ref.look_at_given_pos(look_at)
+	
 func free_player():
 	#print("player has been freed")
 	player_ref.locked_in_dialogue = false
@@ -78,14 +81,15 @@ func colliding_with_this(which : Node3D) -> bool:
 		return interact_ray.get_collider().name == which.name
 	return false
 
-func type_message(message_to_type : String, speed: float = 0.025):
+func type_message(dialogue_instance : DialogueInstance, speed: float = 0.025):
 	# Show this
 	# Set up the name of the obj
 	if(ref != null):
-		if(ref.self_thought):
-			name_label.text = "[Me]"
-		else:
-			name_label.text = "[" + ref.inter_name + "]"
+		## only changes name if different
+		var pulled_name = dialogue_instance.get_speaker()
+		if(pulled_name):
+			name_label.text = "[" + dialogue_instance.get_speaker() + "]"
+			
 	
 	resolved = false
 	informative_label.hide()
@@ -94,7 +98,7 @@ func type_message(message_to_type : String, speed: float = 0.025):
 	delay_time = speed
 	punc_delay_time = 0.25
 	accum_time = punc_delay_time if punc_delay_time > delay_time else delay_time
-	message = message_to_type
+	message = dialogue_instance.line
 	message_length = message.length()
 	current_progress = 0
 	typing = true

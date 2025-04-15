@@ -1,9 +1,5 @@
 class_name Interactable extends Node3D
 
-@export_category("Interactable Properties")
-@export var inter_name : String
-@export var self_thought : bool
-
 @export_category("Dialogue Objects")
 @export var dialogue_objects : Array[DialogueObject]
 

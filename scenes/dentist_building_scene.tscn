@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://dafhqwvqy3o44"]
+[gd_scene load_steps=123 format=3 uid="uid://dafhqwvqy3o44"]
 
 [ext_resource type="PackedScene" uid="uid://cotv6b6qu6h4m" path="res://models/alley_way/dark_alley.glb" id="1_q7wmd"]
 [ext_resource type="PackedScene" uid="uid://dc5l4vdm0dw7v" path="res://scenes/model_scenes/long_road_scene.tscn" id="2_u815w"]
@@ -11,7 +11,11 @@
 [ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="8_heu76"]
 [ext_resource type="Resource" uid="uid://bl5bd6j25ebnb" path="res://dialogue_objs/test/test2.tres" id="9_2n3cb"]
 [ext_resource type="Resource" uid="uid://cx04no61m88x8" path="res://dialogue_objs/test/test.tres" id="9_6potl"]
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="10_m4xe3"]
 [ext_resource type="Sky" uid="uid://b4ntso63cc12y" path="res://skies/night_sky.tres" id="12_opeyb"]
+[ext_resource type="PackedScene" uid="uid://rdvjwrcp53pt" path="res://scenes/model_scenes/receptionist_model.tscn" id="12_ttxr6"]
+[ext_resource type="Script" path="res://scripts/interaction/specific/receptionist/receptionist_interact.gd" id="13_gfvy6"]
+[ext_resource type="Resource" uid="uid://bjgp4d2cs07jf" path="res://dialogue_objs/receptionist/enter_dialogue.tres" id="15_gd7p0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egod3"]
 size = Vector3(2.626, 35.189, 79.117)
@@ -22,9 +26,7 @@ size = Vector3(13.048, 13.48, 2.66504)
 [sub_resource type="Resource" id="Resource_8k27i"]
 script = ExtResource("8_heu76")
 description = ""
-dialogue = Array[String](["Test"])
-voice_line = 0
-dialouge_speed = 1.0
+dialogue = Array[ExtResource("10_m4xe3")]([])
 response_options_available = true
 response_button_titles = Array[String](["move it", "later"])
 
@@ -226,6 +228,209 @@ size = Vector3(23.5463, 87.0819, 15.4113)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nsqvt"]
 size = Vector3(8.76257, 33.186, 80.1112)
 
+[sub_resource type="Animation" id="Animation_g1dcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.898147, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftUpLeg_044")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.115486, 0.673201, 0.73036, 0.00609851)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightUpLeg_048")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.179401, 0.618265, 0.712406, 0.279359)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightLeg_049")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.570198, 0.015798, 0.349674, 0.743204)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftLeg_045")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.679722, 0.170447, -0.090332, 0.707649)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftArm_07")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.41568, 0.777077, 0.0128615, -0.472437)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftForeArm_08")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.267633, 0.317471, -0.488792, 0.767246)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftHand_09")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.374058, 0.735454, 0.235818, 0.513399)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightHand_028")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.196278, -0.274616, -0.076562, 0.938189)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightForeArm_027")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.283636, -0.170076, -0.2321, 0.914743)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightArm_026")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.331857, 0.0886651, -0.366711, 0.864599)
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(76.7662, 1.5602, -69.8572)]
+}
+
+[sub_resource type="Animation" id="Animation_3nl5j"]
+resource_name = "sitting"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.898147, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftUpLeg_044")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.115486, 0.673201, 0.73036, 0.00609851)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightUpLeg_048")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.179401, 0.618265, 0.712406, 0.279359)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightLeg_049")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.570198, 0.015798, 0.349674, 0.743204)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftLeg_045")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.679722, 0.170447, -0.090332, 0.707649)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftArm_07")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.41568, 0.777077, 0.0128615, -0.472437)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftForeArm_08")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.267633, 0.317471, -0.488792, 0.767246)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:LeftHand_09")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.374058, 0.735454, 0.235818, 0.513399)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightHand_028")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.196278, -0.274616, -0.076562, 0.938189)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightForeArm_027")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.283636, -0.170076, -0.2321, 0.914743)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4/Skeleton3D:RightArm_026")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.331857, 0.0886651, -0.366711, 0.864599)
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(76.7662, 1.5602, -69.8572)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vxs2"]
+_data = {
+"RESET": SubResource("Animation_g1dcv"),
+"sitting": SubResource("Animation_3nl5j")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htn1q"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vq70j"]
 size = Vector3(50.8782, 1, 133.428)
 
@@ -390,7 +595,7 @@ spot_angle = 89.99
 spot_angle_attenuation = 1.56917
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_mn57p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8533, 1.00137, -53.7494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.702, 1.00137, -67.3942)
 
 [node name="ParkingLot" parent="." instance=ExtResource("4_x2g1v")]
 transform = Transform3D(-5.68248e-07, 0, -13, 0, 13, 0, 13, 0, -5.68248e-07, 49.2811, -1.24318, -38.0905)
@@ -447,7 +652,6 @@ shape = SubResource("BoxShape3D_egod3")
 transform = Transform3D(1, -2.84217e-14, 0, -1.42109e-14, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([ExtResource("9_2n3cb")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/do_not_cross_line/StaticBody3D"]
@@ -457,7 +661,6 @@ shape = SubResource("BoxShape3D_dhhce")
 [node name="Interaction" type="StaticBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/hiding_cabnit" index="0"]
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/hiding_cabnit/Interaction"]
@@ -523,7 +726,6 @@ shape = SubResource("BoxShape3D_egod3")
 transform = Transform3D(1, -2.13163e-14, 0, -7.10543e-15, 1, 0, 0, 0, 1, -535.201, 118.834, 4.19617e-05)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/moving_chair_my_office/Interaction"]
@@ -534,7 +736,6 @@ shape = SubResource("BoxShape3D_mq5qd")
 transform = Transform3D(1, -4.9738e-14, 0, -2.13163e-14, 1, 0, 6.77626e-21, 0, 1, -189.413, 613.914, 0.000219553)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/Object_204/InteractionT1"]
@@ -545,7 +746,6 @@ shape = SubResource("BoxShape3D_hs4h6")
 transform = Transform3D(0.999999, -6.39488e-14, 0, -2.84217e-14, 1, 0, 6.77626e-21, 0, 1, -226.639, 613.914, 0.000219553)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/Object_204/InteractionT2"]
@@ -556,7 +756,6 @@ shape = SubResource("BoxShape3D_j1auk")
 transform = Transform3D(0.999999, -7.10543e-14, 0, -3.55271e-14, 1, 0, 6.77626e-21, 0, 1, -226.639, 664.299, 0.000237572)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/Object_204/InteractionS1"]
@@ -567,7 +766,6 @@ shape = SubResource("BoxShape3D_o68ot")
 transform = Transform3D(0.999999, -8.52651e-14, 0, -4.9738e-14, 1, 0, 6.77626e-21, 0, 1, -199.685, 664.299, 0.000237572)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([SubResource("Resource_8k27i")])
 
 [node name="Collision" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/Object_204/InteractionS2"]
@@ -578,7 +776,6 @@ shape = SubResource("BoxShape3D_mq5qd")
 transform = Transform3D(1, -2.84217e-14, 0, -1.42109e-14, 1, 0, 0, 0, 1, -132.986, 588.33, 0.000210403)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([ExtResource("9_6potl")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/other_recp_meeting_door/StaticBody3D"]
@@ -589,7 +786,6 @@ shape = SubResource("BoxShape3D_djtsx")
 transform = Transform3D(1, -5.68434e-14, 0, -2.84217e-14, 1, 0, 6.77626e-21, 0, 1, -381.749, 686.778, 0.000245611)
 collision_layer = 13
 script = ExtResource("7_5quyw")
-self_thought = true
 dialogue_objects = Array[ExtResource("8_heu76")]([ExtResource("9_6potl")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/random_door_to_nothin/StaticBody3D"]
@@ -1057,9 +1253,11 @@ shape = SubResource("BoxShape3D_nsqvt")
 
 [node name="Floor2" parent="DentistBuilding" instance=ExtResource("6_5v157")]
 transform = Transform3D(-0.03, 0, -4.52987e-09, 0, 0.03, 0, 4.52987e-09, 0, -0.03, -6.25716, 3.62341, -14.8392)
+visible = false
 
 [node name="Floor3" parent="DentistBuilding" instance=ExtResource("6_5v157")]
 transform = Transform3D(-0.03, 0, -4.52987e-09, 0, 0.03, 0, 4.52987e-09, 0, -0.03, -6.25716, 7.2396, -14.8392)
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="DentistBuilding"]
 transform = Transform3D(0.944404, -0.0758488, -0.319918, 0.32816, 0.277507, 0.90294, 0.0202928, -0.957725, 0.28697, -17.3365, 14.0883, 10.5154)
@@ -1067,6 +1265,51 @@ light_energy = 8.0
 light_size = 0.92
 spot_range = 28.6672
 spot_angle = 16.8225
+
+[node name="ReceptionistModel" parent="." node_paths=PackedStringArray("to_look_at_obj") instance=ExtResource("12_ttxr6")]
+transform = Transform3D(0.716519, 0, -0.8995, 0, 1.15, 0, 0.8995, 0, 0.716519, 76.7662, 1.5602, -69.8572)
+script = ExtResource("13_gfvy6")
+to_look_at_obj = NodePath(".")
+dialogue_objects = Array[ExtResource("8_heu76")]([ExtResource("15_gd7p0")])
+
+[node name="Skeleton3D" parent="ReceptionistModel/Sketchfab_model/8fa44bf783d34544818f2a463fa2a254_fbx/RootNode/Nurse Woman1 Blue Mental Ray/Object_4" index="0"]
+bones/13/position = Vector3(-9.67553e-06, 0.117322, 5.73128e-07)
+bones/13/rotation = Quaternion(0.41568, -0.777077, -0.0128615, 0.472437)
+bones/14/position = Vector3(-2.22084e-06, 0.192885, 6.33359e-07)
+bones/14/rotation = Quaternion(0.267633, 0.317471, -0.488792, 0.767246)
+bones/15/position = Vector3(4.33647e-06, 0.265288, 3.10703e-06)
+bones/15/rotation = Quaternion(-0.374058, 0.735454, 0.235818, 0.513399)
+bones/15/scale = Vector3(1, 1, 0.999999)
+bones/37/position = Vector3(3.10684e-06, 0.117318, 1.04793e-06)
+bones/37/rotation = Quaternion(0.331857, 0.0886652, -0.366711, 0.864599)
+bones/38/position = Vector3(3.76145e-05, 0.193114, 1.51e-05)
+bones/38/rotation = Quaternion(0.283636, -0.170076, -0.2321, 0.914743)
+bones/39/position = Vector3(1.11228e-05, 0.264988, -8.4797e-06)
+bones/39/rotation = Quaternion(-0.196278, -0.274616, -0.076562, 0.938189)
+bones/67/position = Vector3(0.0850066, -0.0563586, -0.00887182)
+bones/67/rotation = Quaternion(0.115486, 0.673201, 0.73036, 0.00609851)
+bones/68/position = Vector3(-4.80816e-06, 0.419067, 4.83752e-06)
+bones/68/rotation = Quaternion(-0.679722, 0.170447, -0.0903319, 0.707649)
+bones/72/position = Vector3(-0.0850068, -0.0563586, -0.0101646)
+bones/72/rotation = Quaternion(0.179401, 0.618265, 0.712406, 0.279359)
+bones/73/position = Vector3(-5.02311e-06, 0.419279, 4.43984e-06)
+bones/73/rotation = Quaternion(-0.570198, 0.015798, 0.349674, 0.743204)
+
+[node name="ReceptionistAnimations" type="AnimationPlayer" parent="ReceptionistModel"]
+libraries = {
+"": SubResource("AnimationLibrary_5vxs2")
+}
+
+[node name="ReceptionistTriggers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.5793, 0, -71.79)
+
+[node name="EnterT" type="Area3D" parent="ReceptionistTriggers"]
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceptionistTriggers/EnterT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84544, 0.674058, 3.70108)
+shape = SubResource("BoxShape3D_htn1q")
 
 [node name="main_floor_collider" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7316, 0.0576954, -43.4448)
@@ -1361,4 +1604,7 @@ environment = SubResource("Environment_7o7h1")
 transform = Transform3D(1, 0, 0, 0, 0.0920057, 0.995758, 0, -0.995758, 0.0920057, 49.1394, 24.1157, 0)
 light_energy = 0.05
 
+[connection signal="body_entered" from="ReceptionistTriggers/EnterT" to="ReceptionistModel" method="_on_enter_door_body_entered"]
+
 [editable path="DentistBuilding/Floor1"]
+[editable path="ReceptionistModel"]

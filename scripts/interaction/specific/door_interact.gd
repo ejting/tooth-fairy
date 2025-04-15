@@ -12,9 +12,6 @@ var snap_margin : float = 0.5
 
 var personal_dm_ref : DialogueManager
 
-func _ready():
-	inter_name = ""
-
 func on_interact(dm_ref : DialogueManager):
 	if(personal_dm_ref == null):
 		personal_dm_ref = dm_ref

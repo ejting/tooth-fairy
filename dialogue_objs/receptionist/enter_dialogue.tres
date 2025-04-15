@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=5 format=3 uid="uid://bjgp4d2cs07jf"]
+
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_hjh01"]
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="2_y475c"]
+
+[sub_resource type="Resource" id="Resource_l0tqt"]
+script = ExtResource("1_hjh01")
+name = "Receptionist"
+self_thought = false
+line = "Hello Dr. Chance, how are you doing today?"
+voice_line = 0
+dialouge_speed = 1.0
+
+[sub_resource type="Resource" id="Resource_22d3w"]
+script = ExtResource("1_hjh01")
+name = ""
+self_thought = false
+line = "Why are you here so late?"
+voice_line = 0
+dialouge_speed = 1.0
+
+[resource]
+script = ExtResource("2_y475c")
+description = ""
+dialogue = Array[ExtResource("1_hjh01")]([SubResource("Resource_l0tqt"), SubResource("Resource_22d3w")])
+response_options_available = false
+response_button_titles = Array[String]([])

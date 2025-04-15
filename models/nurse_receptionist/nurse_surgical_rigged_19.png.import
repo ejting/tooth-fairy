@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dvscai3su74h8"
+path="res://.godot/imported/nurse_surgical_rigged_19.png-e6fd75d69076d8eb02642347ed99f3a2.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "a675b4b57cb4abd526b4d484d5491104"
+}
+
+[deps]
+
+source_file="res://models/nurse_receptionist/nurse_surgical_rigged_19.png"
+dest_files=["res://.godot/imported/nurse_surgical_rigged_19.png-e6fd75d69076d8eb02642347ed99f3a2.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
