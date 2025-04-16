@@ -292,6 +292,16 @@ volume_db = -40.0
 process_callback = 0
 one_shot = true
 
+[node name="FootstepTimer2" type="Timer" parent="Walking"]
+process_callback = 0
+one_shot = true
+
+[node name="Walking2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.833951, 0)
+visible = false
+stream = ExtResource("7_hfxaj")
+volume_db = -40.0
+
 [connection signal="timeout" from="UI/DialougeUI/BlackoutTimer" to="UI/DialougeUI" method="blackout_timer_finished"]
 [connection signal="pressed" from="UI/OptionsContainer/Option1" to="UI/DialougeUI" method="option_one_selected"]
 [connection signal="pressed" from="UI/OptionsContainer/Option2" to="UI/DialougeUI" method="option_two_selected"]

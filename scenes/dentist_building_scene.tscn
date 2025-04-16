@@ -1,5 +1,6 @@
 [gd_scene load_steps=146 format=3 uid="uid://dafhqwvqy3o44"]
 
+
 [ext_resource type="PackedScene" uid="uid://cotv6b6qu6h4m" path="res://models/alley_way/dark_alley.glb" id="1_q7wmd"]
 [ext_resource type="PackedScene" uid="uid://dc5l4vdm0dw7v" path="res://scenes/model_scenes/long_road_scene.tscn" id="2_u815w"]
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="3_mn57p"]
@@ -14,6 +15,10 @@
 [ext_resource type="Resource" uid="uid://bl5bd6j25ebnb" path="res://dialogue_objs/test/test2.tres" id="9_2n3cb"]
 [ext_resource type="Resource" uid="uid://cx04no61m88x8" path="res://dialogue_objs/test/test.tres" id="9_6potl"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/dentist_building/moveable_cabinet/moveable_cabinet.gd" id="10_2vb3v"]
+[ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="11_xny7i"]
+[ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="12_nadgd"]
+[ext_resource type="Sky" uid="uid://b4ntso63cc12y" path="res://skies/night_sky.tres" id="12_opeyb"]
+[ext_resource type="AudioStream" uid="uid://uhk48357ds20" path="res://sounds/old-air-conditioning-unit-73528.mp3" id="13_tct2g"]
 [ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="10_m4xe3"]
 [ext_resource type="Resource" uid="uid://vx6ntrh8d7o8" path="res://dialogue_objs/dentist_building/cabinet/1_cabinet.tres" id="11_lps6n"]
 [ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="11_xny7i"]
