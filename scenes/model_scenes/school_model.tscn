@@ -1,15 +1,22 @@
-[gd_scene load_steps=29 format=4 uid="uid://ddb56yjb67n16"]
+[gd_scene load_steps=32 format=4 uid="uid://ddb56yjb67n16"]
 
 [ext_resource type="PackedScene" uid="uid://c32ryonl8t7k7" path="res://models/school_building/school_building.glb" id="1_xoify"]
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="2_p802r"]
+[ext_resource type="Texture2D" uid="uid://cl7fs25jv1iqw" path="res://models/school_building/green-grass-1024x1024.png" id="3_551os"]
 [ext_resource type="Texture2D" uid="uid://cqryj62jw1i4w" path="res://models/roads/simple_modular_roads_system_0.png" id="3_vyskb"]
 [ext_resource type="Texture2D" uid="uid://bsyoy2qwqc845" path="res://models/foliage/locust_tree_pack_2.png" id="4_2444q"]
 [ext_resource type="Texture2D" uid="uid://ciln2o42781os" path="res://models/foliage/locust_tree_pack_3.png" id="5_05p2g"]
 [ext_resource type="Texture2D" uid="uid://duu5o3haxqt2m" path="res://models/foliage/locust_tree_pack_0.png" id="6_ysmhi"]
 [ext_resource type="Texture2D" uid="uid://d368f8u7fgm36" path="res://models/foliage/locust_tree_pack_1.png" id="7_w7oc8"]
 [ext_resource type="Shader" path="res://shaders/night_sky.gdshader" id="8_b6a0b"]
+[ext_resource type="PackedScene" uid="uid://dhavgnk2fcyju" path="res://models/roads/car.glb" id="9_p8skt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_74k6q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwpuc"]
+albedo_color = Color(0.387502, 0.720962, 0.516572, 1)
+albedo_texture = ExtResource("3_551os")
+uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_icglt"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
@@ -85,6 +92,44 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dnh2u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvm5x"]
+shader = ExtResource("8_b6a0b")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_n8qet"]
+sky_material = SubResource("ShaderMaterial_nvm5x")
+
+[sub_resource type="Environment" id="Environment_v4vqb"]
+background_mode = 2
+sky = SubResource("Sky_n8qet")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gut6e"]
 resource_name = "foliage"
@@ -235,44 +280,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sf5sy")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvm5x"]
-shader = ExtResource("8_b6a0b")
-shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
-shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
-shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
-shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
-shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
-shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
-shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
-shader_parameter/horizon_blur = 0.05
-shader_parameter/sun_color = Color(10, 8, 1, 1)
-shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
-shader_parameter/sun_size = 0.2
-shader_parameter/sun_blur = 10.0
-shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
-shader_parameter/moon_size = 0.06
-shader_parameter/moon_blur = 0.1
-shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
-shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
-shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
-shader_parameter/clouds_speed = 2.0
-shader_parameter/clouds_direction = 0.2
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_cutoff = 0.3
-shader_parameter/clouds_fuzziness = 0.5
-shader_parameter/clouds_weight = 0.0
-shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_speed = 1.0
-shader_parameter/overwritten_time = 0.0
-
-[sub_resource type="Sky" id="Sky_n8qet"]
-sky_material = SubResource("ShaderMaterial_nvm5x")
-
-[sub_resource type="Environment" id="Environment_v4vqb"]
-background_mode = 2
-sky = SubResource("Sky_n8qet")
-
 [node name="SchoolModel" type="Node3D"]
 
 [node name="School" parent="." instance=ExtResource("1_xoify")]
@@ -284,6 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 17.8892)
 mesh = SubResource("PlaneMesh_74k6q")
+surface_material_override/0 = SubResource("StandardMaterial3D_dwpuc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
@@ -317,124 +325,129 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.36
 mesh = SubResource("ArrayMesh_45rp5")
 skeleton = NodePath("")
 
-[node name="Tree1" type="Node3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.12468, 0, 18.8814)
-
-[node name="foliage_4" type="Node3D" parent="Tree1"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_8" type="MeshInstance3D" parent="Tree1/foliage_4"]
-mesh = SubResource("ArrayMesh_3wxpc")
-skeleton = NodePath("")
-
-[node name="structure_5" type="Node3D" parent="Tree1"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_10" type="MeshInstance3D" parent="Tree1/structure_5"]
-mesh = SubResource("ArrayMesh_sbcha")
-skeleton = NodePath("")
-
-[node name="Tree2" type="Node3D" parent="."]
-transform = Transform3D(-0.0437116, 0, -0.0899405, 0, 0.1, 0, 0.0899405, 0, -0.0437116, 21.5321, 0, 38.6938)
-
-[node name="foliage_4" type="Node3D" parent="Tree2"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_8" type="MeshInstance3D" parent="Tree2/foliage_4"]
-mesh = SubResource("ArrayMesh_3wxpc")
-skeleton = NodePath("")
-
-[node name="structure_5" type="Node3D" parent="Tree2"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_10" type="MeshInstance3D" parent="Tree2/structure_5"]
-mesh = SubResource("ArrayMesh_sbcha")
-skeleton = NodePath("")
-
-[node name="Tree3" type="Node3D" parent="."]
-transform = Transform3D(0.0635795, 0, -0.0771858, 0, 0.1, 0, 0.0771858, 0, 0.0635795, 21.5321, 0, 43.9048)
-
-[node name="foliage_4" type="Node3D" parent="Tree3"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_8" type="MeshInstance3D" parent="Tree3/foliage_4"]
-mesh = SubResource("ArrayMesh_3wxpc")
-skeleton = NodePath("")
-
-[node name="structure_5" type="Node3D" parent="Tree3"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
-
-[node name="Object_10" type="MeshInstance3D" parent="Tree3/structure_5"]
-mesh = SubResource("ArrayMesh_sbcha")
-skeleton = NodePath("")
-
-[node name="Tree4" type="Node3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.7449, 0, -10.3085)
-
-[node name="structure_002_0" type="Node3D" parent="Tree4"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_4" type="MeshInstance3D" parent="Tree4/structure_002_0"]
-mesh = SubResource("ArrayMesh_0hjyq")
-skeleton = NodePath("")
-
-[node name="foliage_002_1" type="Node3D" parent="Tree4"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_6" type="MeshInstance3D" parent="Tree4/foliage_002_1"]
-mesh = SubResource("ArrayMesh_ffuis")
-skeleton = NodePath("")
-
-[node name="Tree5" type="Node3D" parent="."]
-transform = Transform3D(0.0512223, 0, 0.0858853, 0, 0.1, 0, -0.0858853, 0, 0.0512223, 6.34984, 0, 55.542)
-
-[node name="structure_002_0" type="Node3D" parent="Tree5"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_4" type="MeshInstance3D" parent="Tree5/structure_002_0"]
-mesh = SubResource("ArrayMesh_0hjyq")
-skeleton = NodePath("")
-
-[node name="foliage_002_1" type="Node3D" parent="Tree5"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_6" type="MeshInstance3D" parent="Tree5/foliage_002_1"]
-mesh = SubResource("ArrayMesh_ffuis")
-skeleton = NodePath("")
-
-[node name="Tree6" type="Node3D" parent="."]
-transform = Transform3D(0.0512223, 0, 0.0858853, 0, 0.1, 0, -0.0858853, 0, 0.0512223, 24.8618, 0, 55.542)
-
-[node name="structure_002_0" type="Node3D" parent="Tree6"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_4" type="MeshInstance3D" parent="Tree6/structure_002_0"]
-mesh = SubResource("ArrayMesh_0hjyq")
-skeleton = NodePath("")
-
-[node name="foliage_002_1" type="Node3D" parent="Tree6"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_6" type="MeshInstance3D" parent="Tree6/foliage_002_1"]
-mesh = SubResource("ArrayMesh_ffuis")
-skeleton = NodePath("")
-
-[node name="Tree7" type="Node3D" parent="."]
-transform = Transform3D(0.0501103, 0, -0.0865388, 0, 0.1, 0, 0.0865388, 0, 0.0501103, 12.8555, 0, 43.6855)
-
-[node name="structure_002_0" type="Node3D" parent="Tree7"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_4" type="MeshInstance3D" parent="Tree7/structure_002_0"]
-mesh = SubResource("ArrayMesh_0hjyq")
-skeleton = NodePath("")
-
-[node name="foliage_002_1" type="Node3D" parent="Tree7"]
-transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
-
-[node name="Object_6" type="MeshInstance3D" parent="Tree7/foliage_002_1"]
-mesh = SubResource("ArrayMesh_ffuis")
-skeleton = NodePath("")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4vqb")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("9_p8skt")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.95539, 0.099368, 6.43441)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree1" type="Node3D" parent="Trees"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.12468, 0, 18.8814)
+
+[node name="foliage_4" type="Node3D" parent="Trees/Tree1"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_8" type="MeshInstance3D" parent="Trees/Tree1/foliage_4"]
+mesh = SubResource("ArrayMesh_3wxpc")
+skeleton = NodePath("")
+
+[node name="structure_5" type="Node3D" parent="Trees/Tree1"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_10" type="MeshInstance3D" parent="Trees/Tree1/structure_5"]
+mesh = SubResource("ArrayMesh_sbcha")
+skeleton = NodePath("")
+
+[node name="Tree2" type="Node3D" parent="Trees"]
+transform = Transform3D(-0.0437116, 0, -0.0899405, 0, 0.1, 0, 0.0899405, 0, -0.0437116, 21.5321, 0, 38.6938)
+
+[node name="foliage_4" type="Node3D" parent="Trees/Tree2"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_8" type="MeshInstance3D" parent="Trees/Tree2/foliage_4"]
+mesh = SubResource("ArrayMesh_3wxpc")
+skeleton = NodePath("")
+
+[node name="structure_5" type="Node3D" parent="Trees/Tree2"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_10" type="MeshInstance3D" parent="Trees/Tree2/structure_5"]
+mesh = SubResource("ArrayMesh_sbcha")
+skeleton = NodePath("")
+
+[node name="Tree3" type="Node3D" parent="Trees"]
+transform = Transform3D(0.0635795, 0, -0.0771858, 0, 0.1, 0, 0.0771858, 0, 0.0635795, 21.5321, 0, 43.9048)
+
+[node name="foliage_4" type="Node3D" parent="Trees/Tree3"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_8" type="MeshInstance3D" parent="Trees/Tree3/foliage_4"]
+mesh = SubResource("ArrayMesh_3wxpc")
+skeleton = NodePath("")
+
+[node name="structure_5" type="Node3D" parent="Trees/Tree3"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, 37.6434)
+
+[node name="Object_10" type="MeshInstance3D" parent="Trees/Tree3/structure_5"]
+mesh = SubResource("ArrayMesh_sbcha")
+skeleton = NodePath("")
+
+[node name="Tree4" type="Node3D" parent="Trees"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.7449, 0, -10.3085)
+
+[node name="structure_002_0" type="Node3D" parent="Trees/Tree4"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_4" type="MeshInstance3D" parent="Trees/Tree4/structure_002_0"]
+mesh = SubResource("ArrayMesh_0hjyq")
+skeleton = NodePath("")
+
+[node name="foliage_002_1" type="Node3D" parent="Trees/Tree4"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_6" type="MeshInstance3D" parent="Trees/Tree4/foliage_002_1"]
+mesh = SubResource("ArrayMesh_ffuis")
+skeleton = NodePath("")
+
+[node name="Tree5" type="Node3D" parent="Trees"]
+transform = Transform3D(0.0512223, 0, 0.0858853, 0, 0.1, 0, -0.0858853, 0, 0.0512223, 6.34984, 0, 55.542)
+
+[node name="structure_002_0" type="Node3D" parent="Trees/Tree5"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_4" type="MeshInstance3D" parent="Trees/Tree5/structure_002_0"]
+mesh = SubResource("ArrayMesh_0hjyq")
+skeleton = NodePath("")
+
+[node name="foliage_002_1" type="Node3D" parent="Trees/Tree5"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_6" type="MeshInstance3D" parent="Trees/Tree5/foliage_002_1"]
+mesh = SubResource("ArrayMesh_ffuis")
+skeleton = NodePath("")
+
+[node name="Tree6" type="Node3D" parent="Trees"]
+transform = Transform3D(0.0512223, 0, 0.0858853, 0, 0.1, 0, -0.0858853, 0, 0.0512223, 24.8618, 0, 55.542)
+
+[node name="structure_002_0" type="Node3D" parent="Trees/Tree6"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_4" type="MeshInstance3D" parent="Trees/Tree6/structure_002_0"]
+mesh = SubResource("ArrayMesh_0hjyq")
+skeleton = NodePath("")
+
+[node name="foliage_002_1" type="Node3D" parent="Trees/Tree6"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_6" type="MeshInstance3D" parent="Trees/Tree6/foliage_002_1"]
+mesh = SubResource("ArrayMesh_ffuis")
+skeleton = NodePath("")
+
+[node name="Tree7" type="Node3D" parent="Trees"]
+transform = Transform3D(0.0501103, 0, -0.0865388, 0, 0.1, 0, 0.0865388, 0, 0.0501103, 12.8555, 0, 43.6855)
+
+[node name="structure_002_0" type="Node3D" parent="Trees/Tree7"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_4" type="MeshInstance3D" parent="Trees/Tree7/structure_002_0"]
+mesh = SubResource("ArrayMesh_0hjyq")
+skeleton = NodePath("")
+
+[node name="foliage_002_1" type="Node3D" parent="Trees/Tree7"]
+transform = Transform3D(1, 0, 0, 0, -1.68587e-07, -1, 0, 1, -1.68587e-07, 0, 0, -54.2756)
+
+[node name="Object_6" type="MeshInstance3D" parent="Trees/Tree7/foliage_002_1"]
+mesh = SubResource("ArrayMesh_ffuis")
+skeleton = NodePath("")

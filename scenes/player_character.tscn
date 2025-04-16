@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckrexfxacvftu"]
+[gd_scene load_steps=12 format=3 uid="uid://ckrexfxacvftu"]
 
 [ext_resource type="Script" path="res://scripts/player/player_movement.gd" id="1_6u2n3"]
 [ext_resource type="Script" path="res://scripts/player/interact_ray.gd" id="2_efb6m"]
 [ext_resource type="PackedScene" uid="uid://dp7br7eigsrkm" path="res://scenes/model_scenes/our_human.tscn" id="2_hwdqe"]
 [ext_resource type="Shader" path="res://shaders/pixel.gdshader" id="2_p0jnh"]
 [ext_resource type="Script" path="res://scripts/player/dialouge_manager.gd" id="4_5q0pd"]
+[ext_resource type="PackedScene" path="res://scenes/menu_scenes/pause_menu.tscn" id="4_hx0ws"]
+[ext_resource type="AudioStream" uid="uid://dv4pvxqnfkvsy" path="res://sounds/footstep.mp3" id="7_hfxaj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hbap6"]
 
@@ -263,12 +265,32 @@ visible = false
 layout_mode = 2
 text = "choose me!"
 
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_hx0ws")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+
 [node name="seperation" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282197, -0.680933)
 shape = SubResource("SeparationRayShape3D_jivhw")
 
 [node name="Rotator" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863591, 0)
+
+[node name="Walking" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.833951, 0)
+visible = false
+stream = ExtResource("7_hfxaj")
+volume_db = -40.0
+
+[node name="FootstepTimer" type="Timer" parent="Walking"]
+process_callback = 0
+one_shot = true
 
 [connection signal="timeout" from="UI/DialougeUI/BlackoutTimer" to="UI/DialougeUI" method="blackout_timer_finished"]
 [connection signal="pressed" from="UI/OptionsContainer/Option1" to="UI/DialougeUI" method="option_one_selected"]

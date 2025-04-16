@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=12 format=3 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="Shader" path="res://shaders/night_sky.gdshader" id="5_ba005"]
 [ext_resource type="PackedScene" uid="uid://d2c3cqi2n11mh" path="res://scenes/model_scenes/final_house_model.tscn" id="5_kdqbi"]
+[ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="5_witgh"]
+[ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="6_k1eai"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/door_interact_y.gd" id="7_220ta"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclx6"]
@@ -85,5 +87,11 @@ DOOR_OPENING_SPEED = 8.5
 [node name="main_r_door_col" type="CollisionShape3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
 transform = Transform3D(1, 2.32827e-10, 1.13214e-08, 7.10543e-15, 1, 2.32831e-10, -1.60071e-10, -3.38813e-21, 1, 96.4206, -48.7018, 7.5013)
 shape = SubResource("BoxShape3D_wifsa")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+stream = ExtResource("5_witgh")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+stream = ExtResource("6_k1eai")
 
 [editable path="final_house_model"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=142 format=3 uid="uid://dafhqwvqy3o44"]
+[gd_scene load_steps=146 format=3 uid="uid://dafhqwvqy3o44"]
 
 [ext_resource type="PackedScene" uid="uid://cotv6b6qu6h4m" path="res://models/alley_way/dark_alley.glb" id="1_q7wmd"]
 [ext_resource type="PackedScene" uid="uid://dc5l4vdm0dw7v" path="res://scenes/model_scenes/long_road_scene.tscn" id="2_u815w"]
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="3_mn57p"]
 [ext_resource type="PackedScene" uid="uid://bsxmfe36om66h" path="res://scenes/model_scenes/parking_lot_model.tscn" id="4_x2g1v"]
 [ext_resource type="PackedScene" uid="uid://cl6o32a0wjtht" path="res://scenes/model_scenes/dentist_building_1F.tscn" id="5_fo46m"]
+[ext_resource type="AudioStream" uid="uid://bgvhaep17058" path="res://sounds/crickets-26444.mp3" id="5_k0c4i"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/door_interact.gd" id="6_4iq1i"]
 [ext_resource type="PackedScene" uid="uid://cge4sngr5fjfd" path="res://scenes/model_scenes/OtherDentistFloors.tscn" id="6_5v157"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/dentist_building/basement_door/basement_door_interact.gd" id="6_egvdk"]
@@ -15,10 +16,13 @@
 [ext_resource type="Script" path="res://scripts/interaction/specific/dentist_building/moveable_cabinet/moveable_cabinet.gd" id="10_2vb3v"]
 [ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="10_m4xe3"]
 [ext_resource type="Resource" uid="uid://vx6ntrh8d7o8" path="res://dialogue_objs/dentist_building/cabinet/1_cabinet.tres" id="11_lps6n"]
+[ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="11_xny7i"]
+[ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="12_nadgd"]
 [ext_resource type="Resource" uid="uid://dxofjyq0ht10a" path="res://dialogue_objs/dentist_building/cabinet/2_cabinet.tres" id="12_obji4"]
 [ext_resource type="Sky" uid="uid://b4ntso63cc12y" path="res://skies/night_sky.tres" id="12_opeyb"]
 [ext_resource type="PackedScene" uid="uid://rdvjwrcp53pt" path="res://scenes/model_scenes/receptionist_model.tscn" id="12_ttxr6"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/receptionist/receptionist_interact.gd" id="13_gfvy6"]
+[ext_resource type="AudioStream" uid="uid://uhk48357ds20" path="res://sounds/old-air-conditioning-unit-73528.mp3" id="13_tct2g"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/dentist_building/toliet/toliet_interact.gd" id="14_ehkwa"]
 [ext_resource type="Resource" uid="uid://bfc1exxnv8igp" path="res://dialogue_objs/dentist_building/toliet/1_toliet.tres" id="15_08adp"]
 [ext_resource type="Resource" uid="uid://bjgp4d2cs07jf" path="res://dialogue_objs/receptionist/enter_dialogue.tres" id="15_gd7p0"]
@@ -638,7 +642,7 @@ spot_angle = 89.99
 spot_angle_attenuation = 1.56917
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_mn57p")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.10617, 1.00137, -27.6215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.4113, 1.00137, -67.7467)
 
 [node name="ParkingLot" parent="." instance=ExtResource("4_x2g1v")]
 transform = Transform3D(-5.68248e-07, 0, -13, 0, 13, 0, 13, 0, -5.68248e-07, 49.2811, -1.24318, -38.0905)
@@ -671,6 +675,37 @@ spot_range = 18.974
 spot_angle = 89.99
 spot_angle_attenuation = 1.56917
 
+[node name="AmbientSounds" type="Node3D" parent="ParkingLot"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, -0.952989)
+
+[node name="Crickets" type="AudioStreamPlayer3D" parent="ParkingLot/AmbientSounds"]
+transform = Transform3D(0.0769231, 0, 0, 0, 0.0769231, 0, 0, 0, 0.0769231, -0.879052, 0.17119, 2.52111)
+stream = ExtResource("5_k0c4i")
+volume_db = 10.0
+autoplay = true
+max_distance = 70.0
+
+[node name="Crickets2" type="AudioStreamPlayer3D" parent="ParkingLot/AmbientSounds"]
+transform = Transform3D(0.0769231, 0, 0, 0, 0.0769231, 0, 0, 0, 0.0769231, -2.80908, 0.17119, 2.52111)
+stream = ExtResource("5_k0c4i")
+volume_db = 10.0
+autoplay = true
+max_distance = 70.0
+
+[node name="Crickets3" type="AudioStreamPlayer3D" parent="ParkingLot/AmbientSounds"]
+transform = Transform3D(0.0769231, 0, 0, 0, 0.0769231, 0, 0, 0, 0.0769231, 1.33205, 0.17119, 2.52111)
+stream = ExtResource("5_k0c4i")
+volume_db = 10.0
+autoplay = true
+max_distance = 70.0
+
+[node name="Crickets4" type="AudioStreamPlayer3D" parent="ParkingLot/AmbientSounds"]
+transform = Transform3D(0.0769231, 0, 0, 0, 0.0769231, 0, 0, 0, 0.0769231, 3.86988, 0.17119, 2.52111)
+stream = ExtResource("5_k0c4i")
+volume_db = 10.0
+autoplay = true
+max_distance = 70.0
+
 [node name="DentistBuilding" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.144, 0, -73.385)
 
@@ -692,6 +727,16 @@ player_ref = NodePath("../../../../../../PlayerCharacter")
 [node name="main_r_door_col" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/basement_door/AnimatableBody3D2"]
 transform = Transform3D(1, 2.32831e-10, 1.13214e-08, 0, 1, 2.32831e-10, -1.60071e-10, -3.38813e-21, 1, -3.26807, -17.0881, 38.5489)
 shape = SubResource("BoxShape3D_egod3")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/basement_door/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/basement_door/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/do_not_cross_line" index="0"]
 transform = Transform3D(1, -2.84217e-14, 0, -1.42109e-14, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -726,6 +771,16 @@ DOOR_OPENING_SPEED = 7.5
 transform = Transform3D(1, 2.32831e-10, 1.13214e-08, 0, 1, 2.32831e-10, -1.60071e-10, 0, 1, -1.56372, 15.3218, 38.5489)
 shape = SubResource("BoxShape3D_egod3")
 
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/looby_door_to_out/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/looby_door_to_out/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
+
 [node name="main_door_left" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds" index="18"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 132.44, 651.633, 2.12483)
 
@@ -742,6 +797,16 @@ DOOR_OPENING_SPEED = 7.5
 transform = Transform3D(1, 0, 1.13275e-08, 0, 1, 0, -1.74168e-10, 0, 1, -1.56104, 17.7505, 38.5443)
 shape = SubResource("BoxShape3D_egod3")
 
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/main_door_left/AnimatableBody3D"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/main_door_left/AnimatableBody3D"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
+
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/main_door_right" index="0" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
 transform = Transform3D(0.999999, -0.00119081, -0.000224658, 0.00119039, 0.999997, -0.00187693, 0.000226892, 0.00187666, 0.999998, 0.473389, 2.71655, 0.592307)
 collision_layer = 9
@@ -755,6 +820,16 @@ DOOR_OPENING_SPEED = 7.5
 transform = Transform3D(1, 1.16415e-10, 1.13216e-08, 0, 1, 1.16415e-10, -1.60071e-10, 0, 1, -1.60693, -20.8496, 38.6168)
 shape = SubResource("BoxShape3D_egod3")
 
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/main_door_right/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/main_door_right/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
+
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/meeting_door" index="1" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
 transform = Transform3D(0.999999, -0.00119081, -0.000224658, 0.00119039, 0.999997, -0.00187693, 0.000226892, 0.00187666, 0.999998, 0.473145, 1.07031, 0.592307)
 collision_layer = 9
@@ -767,6 +842,16 @@ DOOR_OPENING_SPEED = 7.5
 [node name="main_r_door_col" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/meeting_door/AnimatableBody3D2"]
 transform = Transform3D(1, 3.49246e-10, 1.13216e-08, 0, 1, 1.16415e-10, -1.74396e-10, 0, 1, -1.60327, -18.0154, 38.6114)
 shape = SubResource("BoxShape3D_egod3")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/meeting_door/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/meeting_door/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
 
 [node name="Interaction" type="StaticBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/moving_chair_my_office" index="0"]
 transform = Transform3D(1, -2.13163e-14, 0, -7.10543e-15, 1, 0, 0, 0, 1, -535.201, 118.834, 4.19617e-05)
@@ -840,6 +925,16 @@ dialogue_objects = Array[ExtResource("8_heu76")]([ExtResource("9_6potl")])
 transform = Transform3D(1, 6.11777e-12, -2.41235e-18, -5.42855e-12, 1, 0, 2.4259e-18, 0, 1, -1.9458, -15.5142, 41.4036)
 shape = SubResource("BoxShape3D_1m2uj")
 
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/random_door_to_nothin/StaticBody3D"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/random_door_to_nothin/StaticBody3D"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
+
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_1" index="1" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.473389, 2.71655, 0.592307)
 collision_layer = 9
@@ -854,6 +949,16 @@ DOOR_OPENING_SPEED = 7.5
 transform = Transform3D(1, 2.32831e-10, 1.13214e-08, 0, 1, 2.32831e-10, -1.60071e-10, -1.69407e-21, 1, -1.56372, -17.0881, 38.5489)
 shape = SubResource("BoxShape3D_egod3")
 
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_1/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_1/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
+
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_2" index="1" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.473389, 2.71655, 0.592307)
 collision_layer = 9
@@ -867,6 +972,16 @@ DOOR_OPENING_SPEED = 7.5
 [node name="main_r_door_col" type="CollisionShape3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_2/AnimatableBody3D2"]
 transform = Transform3D(1, 2.32831e-10, 1.13214e-08, 0, 1, 2.32831e-10, -1.60071e-10, 0, 1, -1.56372, 15.3218, 38.5489)
 shape = SubResource("BoxShape3D_egod3")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_2/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("11_xny7i")
+volume_db = -25.0
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="DentistBuilding/Floor1/Sketchfab_model/Lam Expansion_3ds/toliet_door_2/AnimatableBody3D2"]
+transform = Transform3D(33.3333, 0, 5.42101e-19, 0, 33.3334, 9.09495e-13, 1.0842e-19, -4.54747e-12, 33.3333, 0, 0, 0)
+stream = ExtResource("12_nadgd")
+volume_db = -25.0
 
 [node name="Lighting" type="Node3D" parent="DentistBuilding/Floor1"]
 transform = Transform3D(1, 0, 2.38418e-07, 0, 1, 0, -2.38418e-07, 0, 1, 0.0178223, 0.66451, 0.0102539)
@@ -1446,8 +1561,15 @@ light_size = 0.92
 spot_range = 28.6672
 spot_angle = 16.8225
 
+[node name="AirConditioningSound" type="AudioStreamPlayer3D" parent="DentistBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520111, 10.1055, 0)
+stream = ExtResource("13_tct2g")
+volume_db = -20.0
+autoplay = true
+max_distance = 20.0
+
 [node name="ReceptionistModel" parent="." node_paths=PackedStringArray("enter_t", "to_look_at_obj") instance=ExtResource("12_ttxr6")]
-transform = Transform3D(0.716519, 0, -0.8995, 0, 1.15, 0, 0.8995, 0, 0.716519, 76.7662, 1.5602, -69.8572)
+transform = Transform3D(0.62306, 0, -0.782174, 0, 1, 0, 0.782174, 0, 0.62306, 76.7662, 1.5602, -69.8572)
 script = ExtResource("13_gfvy6")
 enter_t = NodePath("../ReceptionistTriggers/EnterT")
 to_look_at_obj = NodePath(".")

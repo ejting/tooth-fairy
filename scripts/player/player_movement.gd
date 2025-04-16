@@ -17,6 +17,7 @@ class_name Player extends CharacterBody3D
 @export var stairs_ahead_raycast : RayCast3D
 @export var stairs_below_raycast : RayCast3D
 
+var step_timer = 1.0
 var speed
 var current_speed = 0.0
 var bob_frequency
@@ -85,6 +86,13 @@ func _process(delta):
 # This will be called every frame
 # to handle our player movement
 func _physics_process(delta):
+	
+	#pause game:
+	if (Input.is_action_just_pressed("exit")):
+		$UI/PauseMenu.show()
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if(locked_in_dialogue):
 		return
 	
@@ -100,10 +108,12 @@ func _physics_process(delta):
 		current_speed = lerp(current_speed, SPRINT_SPEED, delta * LERP_SPEED)
 		bob_amplitude = BOB_SPRINT_AMPLITUDE
 		bob_frequency = BOB_SPRINT_FREQUENCY
+		step_timer = 0.5
 	else:
 		current_speed = lerp(current_speed, WALK_SPEED, delta * LERP_SPEED)
 		bob_amplitude = BOB_WALK_AMPLITUDE
 		bob_frequency = BOB_WALK_FREQUENCY
+		step_timer = 1.0
 	
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
@@ -113,6 +123,11 @@ func _physics_process(delta):
 	if (direction):
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
+		#Play footstep sounds:
+		if $Walking/FootstepTimer.time_left <= 0:
+			$Walking.pitch_scale = randf_range (0.2, 0.5)
+			$Walking.play()
+			$Walking/FootstepTimer.start(step_timer)
 		
 	else:
 		velocity.x = lerp(velocity.x, direction.x * current_speed, delta * 14.0)
@@ -120,6 +135,7 @@ func _physics_process(delta):
 
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = getHeadBob()
+	
 	if(!snap_up_stairs_check(delta)):
 		move_and_slide()
 		snap_down_to_stairs_check()

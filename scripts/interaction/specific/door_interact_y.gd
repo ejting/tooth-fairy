@@ -20,9 +20,11 @@ func on_interact(dm_ref : DialogueManager):
 		if(opened):
 			# Closing the door
 			changing_states = -1
+			$DoorClose.play()
 		else:
 			# Opening the door
 			changing_states = 1
+			$DoorOpen.play()
 		# Clear the interact text
 		dm_ref.interact_label.text = ""
 		# Starts the cooldown that will re-enable the interact
