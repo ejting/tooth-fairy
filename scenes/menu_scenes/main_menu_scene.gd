@@ -1,9 +1,9 @@
 extends Control
 
-const PLAY_SCENE_PATH = "res://scenes/dentist_building_scene.tscn"
 
 func _ready():
-	ResourceLoader.load_threaded_request(PLAY_SCENE_PATH)
+	ResourceLoader.load_threaded_request(Globals.target_scene_path)
+	Globals.load_requested = true
 
 
 func _on_play_pressed():

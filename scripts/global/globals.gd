@@ -8,13 +8,21 @@ var suspicion : int
 #Sanity: Starts at 100. If Sanity is reduced to 0 and the player triggers [scene transition], then the game will end with a cutscene of the player being taken to an asylum.
 var sanity : int
 
-#If the player is in a loading screen, this is the scene that is loading in.
+#To change scenes using a loading screen:
+# 1. if you have already called load_threaded_request on the scene, set Globals.load_requested to true.
+# 2. set target_scene_path to the file path of your desired scene
+# 3. do get_tree().change_scene_to_file("res://scenes/menu_scenes/loading_screen.tscn")
+
+#If the player is in a loading screen or the main menu, this is the scene that is loading in.
 #If the player is not in a loading screen, this is the scene they are currently in.
-var target_scene_path: String
+var target_scene_path: String = "res://scenes/dentist_building_scene.tscn"
+
+#true if the target scene has already started loading (such as in the main menu)
+var load_requested: bool
 
 #Story's current state. Numbers for story markers below.
 #This also can be saved along with other global vars to save the player's progress.
-var story_level : float
+var story_level : float = 0
 # 0: Prologue
 # 1: Beginning of chapter 1
 # 1.1: Mr. Cho has been sedated
