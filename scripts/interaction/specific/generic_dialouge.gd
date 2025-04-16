@@ -1,6 +1,9 @@
 extends Interactable
 
 func on_interact(dm_ref : DialogueManager):
+	# failsafe
+	if(dialogue_objects == null || dialogue_objects.size() <= 0):
+		return
 	super(dm_ref)
 	# Reset our line index position
 	line_index = 0

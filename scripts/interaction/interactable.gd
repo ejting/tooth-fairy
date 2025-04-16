@@ -26,3 +26,12 @@ func set_interact_label_text(interact_label_ref : Label):
 ## Able to be overridden to make options do something other than close the prompt
 func option_selected(dm_ref : DialogueManager, which : int):
 	dm_ref.finish_message()
+
+func blackout_finished(dm_ref : DialogueManager):
+	pass
+
+func unblackout_finished(dm_ref : DialogueManager):
+	pass
+
+func blackout_timer_finished(dm_ref : DialogueManager):
+	pass

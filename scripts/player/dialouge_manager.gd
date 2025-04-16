@@ -8,6 +8,8 @@ class_name DialogueManager extends Control
 @export var name_label : Label
 @export var interact_label : Label
 @export var cooldown_timer : Timer
+@export var blackout_timer : Timer
+@export var black_screen : ColorRect
 
 @export var button_holder : VBoxContainer
 
@@ -19,6 +21,10 @@ var message_length : int
 var current_progress : int
 var typing : bool
 var resolved : bool
+
+var blackout_state : int = 0
+var blackout_speed : float = 2.0
+var DEFAULT_BLACKOUT_SPEED : float = 5.0
 
 # Other booleans for checking if we
 #	1. encountered punctuation
@@ -111,6 +117,24 @@ func finish_message():
 		ref.finished_dialouge(self)
 
 func _process(delta) -> void:
+	if(blackout_state != 0):
+		# remove blackout
+		if(blackout_state == -1):
+			black_screen.color.a = lerp(black_screen.color.a, 0.0, delta * blackout_speed)
+			if(black_screen.color.a <= 0.05):
+				black_screen.color.a = 0
+				blackout_state = 0
+				if(ref != null):
+					ref.unblackout_finished(self)
+		# blackout
+		elif(blackout_state == 1):
+			black_screen.color.a = lerp(black_screen.color.a, 1.0, delta * blackout_speed)
+			if(black_screen.color.a >= 0.99):
+				black_screen.color.a = 1.0
+				blackout_state = 0
+				if(ref != null):
+					ref.blackout_finished(self)
+			
 	if(typing):
 		if(Input.is_action_just_pressed("spacebar")):
 			#we're skipping all of the dialogue now
@@ -185,3 +209,17 @@ func option_four_selected():
 	if(ref != null):
 		ref.option_selected(self, 3)
 	
+func blackout(speed : float = DEFAULT_BLACKOUT_SPEED):
+	blackout_speed = speed
+	blackout_state = 1
+
+func unblackout(speed : float = DEFAULT_BLACKOUT_SPEED):
+	blackout_speed = speed
+	blackout_state = -1
+
+func wait_for_time(wait_time : float):
+	blackout_timer.start(wait_time)
+	
+func blackout_timer_finished():
+	if(ref != null):
+		ref.blackout_timer_finished(self)

@@ -7,6 +7,7 @@ class_name Player extends CharacterBody3D
 @export var smoothing_camera_node : Node3D
 @export var camera_pivot : Node3D
 @export var camera : Camera3D
+@export var rotator : Node3D
 @export var pixel_cam : Camera3D
 @export var model : Node3D
 @export var dm_ref : DialogueManager
@@ -57,8 +58,18 @@ func _unhandled_input(event):
 
 func _process(delta):
 	if(looking_at):
+		var previous = camera_pivot.rotation.y
+		var complete_dist = (camera_pivot.rotation.y - rotator.rotation.y) * 4.5
+		camera_pivot.rotation.y = lerp(camera_pivot.rotation.y, rotator.rotation.y, delta * max(4.5, complete_dist))
+		model.rotation.y = camera_pivot.rotation.y - deg_to_rad(180)
+		camera.rotation.x = lerp(camera.rotation.x, rotator.rotation.x, delta * max(4.5, complete_dist))
+		if(abs(camera_pivot.rotation.y - rotator.rotation.y) <= 0.015):
+			camera_pivot.rotation.y = rotator.rotation.y
+			model.rotation.y = rotator.rotation.y - deg_to_rad(180)
+			camera.rotation.x = rotator.rotation.x
+			looking_at = false
 		## TODO make this rotation work
-		looking_at = false
+		#looking_at = false
 		#var direction = (position - look_at_obj.position).normalized()
 		#var dot_product = look_at_obj.global_transform.basis.z.dot(direction)
 		#var angle = acos(dot_product)
@@ -134,6 +145,8 @@ func save_camera_pos_for_smoothing():
 func look_at_given_pos(to_look_at : Node3D):
 	look_at_obj = to_look_at
 	looking_at = true
+	# Look at this
+	rotator.look_at(to_look_at.global_transform.origin, Vector3.UP)
 	
 func slide_camera_smooth_back_to_origin(delta):
 	if(saved_camera_global_pos == null):

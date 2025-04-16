@@ -30,11 +30,12 @@ size = Vector2(2, 2)
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_jivhw"]
 length = 1.05
 
-[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera_pivot", "camera", "pixel_cam", "model", "dm_ref", "stairs_ahead_raycast", "stairs_below_raycast")]
+[node name="PlayerCharacter" type="CharacterBody3D" node_paths=PackedStringArray("camera_pivot", "camera", "rotator", "pixel_cam", "model", "dm_ref", "stairs_ahead_raycast", "stairs_below_raycast")]
 collision_layer = 65
 script = ExtResource("1_6u2n3")
 camera_pivot = NodePath("CameraShakeLayer/CameraSmoothing/CameraPivot")
 camera = NodePath("CameraShakeLayer/CameraSmoothing/CameraPivot/Camera3D")
+rotator = NodePath("Rotator")
 pixel_cam = NodePath("UI/ShaderSubViewport/SubViewport/PixelCamera")
 model = NodePath("PlayerModel")
 dm_ref = NodePath("UI/DialougeUI")
@@ -133,7 +134,24 @@ text = "Press [F] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialougeUI" type="Control" parent="UI" node_paths=PackedStringArray("player_ref", "interact_ray", "labels", "informative_label", "name_label", "interact_label", "cooldown_timer", "button_holder")]
+[node name="Blackout" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackScreen" type="ColorRect" parent="UI/Blackout"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="DialougeUI" type="Control" parent="UI" node_paths=PackedStringArray("player_ref", "interact_ray", "labels", "informative_label", "name_label", "interact_label", "cooldown_timer", "blackout_timer", "black_screen", "button_holder")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,14 +166,15 @@ script = ExtResource("4_5q0pd")
 player_ref = NodePath("../..")
 interact_ray = NodePath("../../CameraShakeLayer/CameraSmoothing/CameraPivot/Camera3D/InteractRay")
 labels = [NodePath("Text")]
-delay_time = null
 informative_label = NodePath("InformativeText")
 name_label = NodePath("NameText")
 interact_label = NodePath("../InteractLabel")
 cooldown_timer = NodePath("Timer")
+blackout_timer = NodePath("BlackoutTimer")
+black_screen = NodePath("../Blackout/BlackScreen")
 button_holder = NodePath("../OptionsContainer")
 
-[node name="ColorRect" type="ColorRect" parent="UI/DialougeUI"]
+[node name="Background" type="ColorRect" parent="UI/DialougeUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,6 +226,9 @@ horizontal_alignment = 2
 [node name="Timer" type="Timer" parent="UI/DialougeUI"]
 one_shot = true
 
+[node name="BlackoutTimer" type="Timer" parent="UI/DialougeUI"]
+one_shot = true
+
 [node name="OptionsContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 8
@@ -245,6 +267,10 @@ text = "choose me!"
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282197, -0.680933)
 shape = SubResource("SeparationRayShape3D_jivhw")
 
+[node name="Rotator" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863591, 0)
+
+[connection signal="timeout" from="UI/DialougeUI/BlackoutTimer" to="UI/DialougeUI" method="blackout_timer_finished"]
 [connection signal="pressed" from="UI/OptionsContainer/Option1" to="UI/DialougeUI" method="option_one_selected"]
 [connection signal="pressed" from="UI/OptionsContainer/Option2" to="UI/DialougeUI" method="option_two_selected"]
 [connection signal="pressed" from="UI/OptionsContainer/Option3" to="UI/DialougeUI" method="option_three_selected"]

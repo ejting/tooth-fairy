@@ -1,5 +1,6 @@
 extends Interactable
 
+@export var enter_t : Area3D
 @export var to_look_at_obj : Node3D
 
 func on_interact(dm_ref : DialogueManager):
@@ -21,8 +22,10 @@ func finished_dialouge(dm_ref : DialogueManager):
 	else:
 		dm_ref.type_message(dialogue_objects[dialogue_index].dialogue[line_index])
 
-
 func _on_enter_door_body_entered(body):
+	enter_t.monitoring = false
+	enter_t.monitorable = false
+	enter_t.collision_mask = 0
 	# pull dm_ref
 	var dm_ref = (body as Player).dm_ref
 	Globals.in_dialogue = true
