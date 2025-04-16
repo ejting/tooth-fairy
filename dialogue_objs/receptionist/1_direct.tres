@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=4 format=3 uid="uid://bb5cds13db3xa"]
+
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_4oa1l"]
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="2_tcjbm"]
+
+[sub_resource type="Resource" id="Resource_hi5my"]
+script = ExtResource("1_4oa1l")
+name = "Receptionist"
+self_thought = false
+line = "Well? What brings you here?"
+voice_line = 0
+dialouge_speed = 1.0
+
+[resource]
+script = ExtResource("2_tcjbm")
+description = ""
+dialogue = Array[ExtResource("1_4oa1l")]([SubResource("Resource_hi5my")])
+response_options_available = true
+response_button_titles = Array[String](["[truth]", "[excuse]", "[lie]"])

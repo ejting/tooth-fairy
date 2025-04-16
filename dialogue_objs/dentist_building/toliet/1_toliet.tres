@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=4 format=3 uid="uid://bfc1exxnv8igp"]
+
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_6t7mv"]
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="2_6rh7c"]
+
+[sub_resource type="Resource" id="Resource_8w8rf"]
+script = ExtResource("1_6t7mv")
+name = ""
+self_thought = true
+line = "Should I use the toliet right now?"
+voice_line = 0
+dialouge_speed = 1.0
+
+[resource]
+script = ExtResource("2_6rh7c")
+description = ""
+dialogue = Array[ExtResource("1_6t7mv")]([SubResource("Resource_8w8rf")])
+response_options_available = true
+response_button_titles = Array[String](["Yes", "Later"])

@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwv3bixcn7qi7"]
+
+[ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
+[ext_resource type="Shader" path="res://shaders/night_sky.gdshader" id="5_ba005"]
+[ext_resource type="PackedScene" uid="uid://d2c3cqi2n11mh" path="res://scenes/model_scenes/final_house_model.tscn" id="5_kdqbi"]
+[ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="5_witgh"]
+[ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="6_k1eai"]
+[ext_resource type="Script" path="res://scripts/interaction/specific/door_interact_y.gd" id="7_220ta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclx6"]
+albedo_color = Color(0.0980392, 0.0980392, 0.690196, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gc56"]
+shader = ExtResource("5_ba005")
+shader_parameter/day_top_color = Color(0, 0.524715, 0.895881, 1)
+shader_parameter/day_bottom_color = Color(0.314505, 0.830768, 0.906467, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0.634922, 0.885589, 1, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_wtg8o"]
+sky_material = SubResource("ShaderMaterial_6gc56")
+
+[sub_resource type="Environment" id="Environment_orfsa"]
+background_mode = 2
+sky = SubResource("Sky_wtg8o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wifsa"]
+size = Vector3(202.003, 98.4163, 7.60689)
+
+[node name="Main" type="Node3D"]
+
+[node name="TestFloor" type="CSGBox3D" parent="."]
+transform = Transform3D(219.405, 0, 0, 0, 1, 0, 0, 0, 116.838, 0, -3.11012, 0)
+material_override = SubResource("StandardMaterial3D_xclx6")
+use_collision = true
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_uuefp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016645, -1.64217, -0.00112152)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_orfsa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0942994, 0.995544, 0, -0.995544, 0.0942994, -3.52601, -0.935989, -6.71827)
+light_energy = 0.5
+sky_mode = 1
+
+[node name="final_house_model" parent="." instance=ExtResource("5_kdqbi")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.85123, -2.45246, -21.3302)
+
+[node name="Node11" parent="final_house_model/Node0" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, -11.1871, 4.9165)
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="final_house_model/Node0/Door/Hinge" index="15" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.63132, 2.71654, -7.78038)
+collision_layer = 9
+script = ExtResource("7_220ta")
+to_rotate = NodePath("..")
+to_match_rotate = NodePath(".")
+DOOR_OPEN_ROTATION = 86.0
+DOOR_OPENING_SPEED = 8.5
+
+[node name="main_r_door_col" type="CollisionShape3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+transform = Transform3D(1, 2.32827e-10, 1.13214e-08, 7.10543e-15, 1, 2.32831e-10, -1.60071e-10, -3.38813e-21, 1, 96.4206, -48.7018, 7.5013)
+shape = SubResource("BoxShape3D_wifsa")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+stream = ExtResource("5_witgh")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+stream = ExtResource("6_k1eai")
+
+[editable path="final_house_model"]

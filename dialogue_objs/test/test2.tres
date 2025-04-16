@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=4 format=3 uid="uid://bl5bd6j25ebnb"]
+
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="1_c7xxh"]
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_knm26"]
+
+[sub_resource type="Resource" id="Resource_1wh4o"]
+script = ExtResource("1_knm26")
+name = ""
+self_thought = true
+line = "They taped this off a while ago. Why can't I go through here? This is my damn office."
+voice_line = 0
+dialouge_speed = 1.0
+
+[resource]
+script = ExtResource("1_c7xxh")
+description = ""
+dialogue = Array[ExtResource("1_knm26")]([SubResource("Resource_1wh4o")])
+response_options_available = false
+response_button_titles = Array[String]([])
