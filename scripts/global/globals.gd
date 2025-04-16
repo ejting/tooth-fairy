@@ -8,9 +8,13 @@ var suspicion : int
 #Sanity: Starts at 100. If Sanity is reduced to 0 and the player triggers [scene transition], then the game will end with a cutscene of the player being taken to an asylum.
 var sanity : int
 
+#If the player is in a loading screen, this is the scene that is loading in.
+#If the player is not in a loading screen, this is the scene they are currently in.
+var target_scene_path: String
+
 #Story's current state. Numbers for story markers below.
 #This also can be saved along with other global vars to save the player's progress.
-var storyLevel : float
+var story_level : float
 # 0: Prologue
 # 1: Beginning of chapter 1
 # 1.1: Mr. Cho has been sedated
