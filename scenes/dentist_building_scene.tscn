@@ -1,6 +1,5 @@
 [gd_scene load_steps=146 format=3 uid="uid://dafhqwvqy3o44"]
 
-
 [ext_resource type="PackedScene" uid="uid://cotv6b6qu6h4m" path="res://models/alley_way/dark_alley.glb" id="1_q7wmd"]
 [ext_resource type="PackedScene" uid="uid://dc5l4vdm0dw7v" path="res://scenes/model_scenes/long_road_scene.tscn" id="2_u815w"]
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="3_mn57p"]
@@ -15,10 +14,6 @@
 [ext_resource type="Resource" uid="uid://bl5bd6j25ebnb" path="res://dialogue_objs/test/test2.tres" id="9_2n3cb"]
 [ext_resource type="Resource" uid="uid://cx04no61m88x8" path="res://dialogue_objs/test/test.tres" id="9_6potl"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/dentist_building/moveable_cabinet/moveable_cabinet.gd" id="10_2vb3v"]
-[ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="11_xny7i"]
-[ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="12_nadgd"]
-[ext_resource type="Sky" uid="uid://b4ntso63cc12y" path="res://skies/night_sky.tres" id="12_opeyb"]
-[ext_resource type="AudioStream" uid="uid://uhk48357ds20" path="res://sounds/old-air-conditioning-unit-73528.mp3" id="13_tct2g"]
 [ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="10_m4xe3"]
 [ext_resource type="Resource" uid="uid://vx6ntrh8d7o8" path="res://dialogue_objs/dentist_building/cabinet/1_cabinet.tres" id="11_lps6n"]
 [ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="11_xny7i"]
@@ -647,7 +642,13 @@ spot_angle = 89.99
 spot_angle_attenuation = 1.56917
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_mn57p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.4113, 1.00137, -67.7467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19838, 1.00137, -28.1853)
+
+[node name="PlayerModel" parent="PlayerCharacter" index="3"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 0, -0.865, 0)
+
+[node name="CameraPivot" parent="PlayerCharacter/CameraShakeLayer/CameraSmoothing" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ParkingLot" parent="." instance=ExtResource("4_x2g1v")]
 transform = Transform3D(-5.68248e-07, 0, -13, 0, 13, 0, 13, 0, -5.68248e-07, 49.2811, -1.24318, -38.0905)
@@ -1947,5 +1948,7 @@ light_energy = 0.05
 [connection signal="body_entered" from="DentistBuilding/Floor1/ToBasementDetection/Area3D" to="DentistBuilding/Floor1/ToBasementDetection/Area3D" method="on_body_enter"]
 [connection signal="body_entered" from="ReceptionistTriggers/EnterT" to="ReceptionistModel" method="_on_enter_door_body_entered"]
 
+[editable path="PlayerCharacter"]
+[editable path="PlayerCharacter/PlayerModel"]
 [editable path="DentistBuilding/Floor1"]
 [editable path="ReceptionistModel"]
