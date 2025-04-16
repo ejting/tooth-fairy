@@ -1,0 +1,15 @@
+Known Issues:
+	
+- Basement door is not able to be closed after it has been opened
+- Basement changing the y level of the entire building is not reversed after having moved the cabinet
+- Cars in the parking lot do not have collision
+
+Need to make:
+- Panorama / background for main menu with a panning screen around the basement
+- Basement scene
+- Make cutscenes for the school scene where we meet
+ the daughter, parent, teacher, and principal
+- Implement newspaper interactions
+- Add the ability to pull up a clipboard
+
+!! - Need to move repository over
