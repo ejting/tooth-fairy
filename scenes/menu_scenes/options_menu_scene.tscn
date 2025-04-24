@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkbgl0kh1ea68"]
+[gd_scene load_steps=4 format=3 uid="uid://bkbgl0kh1ea68"]
 
 [ext_resource type="Script" path="res://scenes/menu_scenes/options_menu_scene.gd" id="1_y17rh"]
+[ext_resource type="FontFile" uid="uid://djxgyjhns20dt" path="res://scenes/menu_scenes/Fredoka-Bold.ttf" id="2_6gje5"]
 [ext_resource type="PackedScene" uid="uid://4mscn1mgvscu" path="res://scenes/menu_scenes/action_remap_button.tscn" id="2_b48p7"]
 
 [node name="OptionsMenu" type="Control"]
@@ -29,6 +30,7 @@ grow_vertical = 2
 
 [node name="OptionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Options"
 
 [node name="OptionsPanel" type="PanelContainer" parent="VBoxContainer"]
@@ -58,6 +60,7 @@ size_flags_vertical = 3
 
 [node name="BrightnessLabel" type="Label" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Brightness"
 
 [node name="BrightnessAdjustor" type="HBoxContainer" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
@@ -70,10 +73,12 @@ size_flags_vertical = 4
 
 [node name="BrightnessValue" type="Label" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings/BrightnessAdjustor"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = " 50"
 
 [node name="VolumeLabel" type="Label" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Volume"
 
 [node name="VolumeAdjustor" type="HBoxContainer" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
@@ -87,10 +92,12 @@ value = 70.0
 
 [node name="VolumeValue" type="Label" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings/VolumeAdjustor"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = " 70"
 
 [node name="Keybinds" type="Label" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Keybinds"
 
 [node name="KeybindSettings" type="VBoxContainer" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
@@ -102,12 +109,14 @@ layout_mode = 2
 [node name="Reset Keybinds" type="Button" parent="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings"]
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Reset Keybinds to Default"
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_6gje5")
 text = "Back"
 
 [connection signal="value_changed" from="VBoxContainer/OptionsPanel/PanelMargins/OptionScroller/OptionMargins/OptionSettings/BrightnessAdjustor/Brightness" to="." method="_on_brightness_value_changed"]

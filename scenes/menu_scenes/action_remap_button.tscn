@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://4mscn1mgvscu"]
+[gd_scene load_steps=2 format=3 uid="uid://4mscn1mgvscu"]
+
+[ext_resource type="FontFile" uid="uid://djxgyjhns20dt" path="res://scenes/menu_scenes/Fredoka-Bold.ttf" id="1_34t8n"]
 
 [node name="ForwardsButton" type="Button"]
 custom_minimum_size = Vector2(0, 36)
@@ -26,6 +28,7 @@ layout_mode = 2
 [node name="ButtonLabel" type="Label" parent="ButtonMargins/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_34t8n")
 text = "Move Forwards"
 vertical_alignment = 1
 
@@ -37,4 +40,5 @@ mouse_filter = 1
 [node name="KeyLabel" type="Label" parent="ButtonMargins/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_34t8n")
 text = "Input Key"
