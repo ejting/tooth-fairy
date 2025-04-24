@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=17 format=3 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
+[ext_resource type="Script" path="res://scripts/interaction/specific/house/house_stairs.gd" id="4_qsex7"]
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="5_3dwrw"]
 [ext_resource type="Shader" path="res://shaders/night_sky.gdshader" id="5_ba005"]
 [ext_resource type="PackedScene" uid="uid://d2c3cqi2n11mh" path="res://scenes/model_scenes/final_house_model.tscn" id="5_kdqbi"]
 [ext_resource type="AudioStream" uid="uid://cwo570uwkbokp" path="res://sounds/door-1-open.wav" id="5_witgh"]
+[ext_resource type="Resource" uid="uid://b63770o7boahm" path="res://dialogue_objs/house/1_stairs.tres" id="6_acff1"]
 [ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="6_k1eai"]
+[ext_resource type="Resource" uid="uid://ucqdro5kp5cw" path="res://dialogue_objs/house/2_stairs.tres" id="7_0o7vn"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/door_interact_y.gd" id="7_220ta"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xclx6"]
@@ -48,6 +52,9 @@ sky_material = SubResource("ShaderMaterial_6gc56")
 background_mode = 2
 sky = SubResource("Sky_wtg8o")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjtpx"]
+size = Vector3(18.0283, 481.024, 140.167)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wifsa"]
 size = Vector3(202.003, 98.4163, 7.60689)
 
@@ -74,6 +81,16 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.85123, -2.45246, -21
 
 [node name="Node11" parent="final_house_model/Node0" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, -11.1871, 4.9165)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="final_house_model/Node0/Node1164" index="0" node_paths=PackedStringArray("to_move")]
+collision_layer = 9
+script = ExtResource("4_qsex7")
+to_move = NodePath("../../../../PlayerCharacter")
+dialogue_objects = Array[ExtResource("5_3dwrw")]([ExtResource("6_acff1"), ExtResource("7_0o7vn")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Node1164/StaticBody3D"]
+transform = Transform3D(0.573777, 0, -0.819012, 0, 1, 0, 0.819012, 0, 0.573777, 498.962, 240.012, 690.662)
+shape = SubResource("BoxShape3D_rjtpx")
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="final_house_model/Node0/Door/Hinge" index="15" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.63132, 2.71654, -7.78038)

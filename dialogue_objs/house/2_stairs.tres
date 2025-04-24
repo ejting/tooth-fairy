@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogueObject" load_steps=4 format=3 uid="uid://ucqdro5kp5cw"]
+
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="1_fvkko"]
+[ext_resource type="Script" path="res://scripts/interaction/DialougeObject.gd" id="2_ffwlg"]
+
+[sub_resource type="Resource" id="Resource_m8gx2"]
+script = ExtResource("1_fvkko")
+name = "go downstairs"
+self_thought = false
+line = "Go downstairs?"
+voice_line = 0
+dialouge_speed = 1.0
+
+[resource]
+script = ExtResource("2_ffwlg")
+description = ""
+dialogue = Array[ExtResource("1_fvkko")]([SubResource("Resource_m8gx2")])
+response_options_available = true
+response_button_titles = Array[String](["Yes", "No"])
