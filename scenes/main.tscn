@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=19 format=3 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/house/house_stairs.gd" id="4_qsex7"]
@@ -53,10 +53,16 @@ background_mode = 2
 sky = SubResource("Sky_wtg8o")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjtpx"]
-size = Vector3(18.0283, 481.024, 140.167)
+size = Vector3(18.0283, 481.024, 219.054)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wifsa"]
 size = Vector3(202.003, 98.4163, 7.60689)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kun7"]
+size = Vector3(9.00162, 195.584, 81.1625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2eueu"]
+size = Vector3(8.32697, 202.175, 83.0646)
 
 [node name="Main" type="Node3D"]
 
@@ -88,8 +94,8 @@ script = ExtResource("4_qsex7")
 to_move = NodePath("../../../../PlayerCharacter")
 dialogue_objects = Array[ExtResource("5_3dwrw")]([ExtResource("6_acff1"), ExtResource("7_0o7vn")])
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Node1164/StaticBody3D"]
-transform = Transform3D(0.573777, 0, -0.819012, 0, 1, 0, 0.819012, 0, 0.573777, 498.962, 240.012, 690.662)
+[node name="StairInteractible" type="CollisionShape3D" parent="final_house_model/Node0/Node1164/StaticBody3D"]
+transform = Transform3D(0.573777, 0, -0.819012, 0, 1, 0, 0.819012, 0, 0.573777, 466.658, 240.012, 653.315)
 shape = SubResource("BoxShape3D_rjtpx")
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="final_house_model/Node0/Door/Hinge" index="15" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
@@ -99,7 +105,7 @@ script = ExtResource("7_220ta")
 to_rotate = NodePath("..")
 to_match_rotate = NodePath(".")
 DOOR_OPEN_ROTATION = 86.0
-DOOR_OPENING_SPEED = 8.5
+DOOR_OPENING_SPEED = 7.5
 
 [node name="main_r_door_col" type="CollisionShape3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
 transform = Transform3D(1, 2.32827e-10, 1.13214e-08, 7.10543e-15, 1, 2.32831e-10, -1.60071e-10, -3.38813e-21, 1, 96.4206, -48.7018, 7.5013)
@@ -109,6 +115,60 @@ shape = SubResource("BoxShape3D_wifsa")
 stream = ExtResource("5_witgh")
 
 [node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Door/Hinge/AnimatableBody3D2"]
+stream = ExtResource("6_k1eai")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Bottom Bedroom Door/Hinge" index="3" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+collision_layer = 9
+script = ExtResource("7_220ta")
+to_rotate = NodePath("..")
+to_match_rotate = NodePath(".")
+DOOR_OPEN_ROTATION = -95.0
+DOOR_OPENING_SPEED = 7.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Bottom Bedroom Door/Hinge/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13371, 97.2922, -46.4272)
+shape = SubResource("BoxShape3D_6kun7")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Bottom Bedroom Door/Hinge/AnimatableBody3D"]
+stream = ExtResource("5_witgh")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Bottom Bedroom Door/Hinge/AnimatableBody3D"]
+stream = ExtResource("6_k1eai")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge" index="3" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+collision_layer = 9
+script = ExtResource("7_220ta")
+to_rotate = NodePath("..")
+to_match_rotate = NodePath(".")
+DOOR_OPEN_ROTATION = -95.0
+DOOR_OPENING_SPEED = 7.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13371, 97.2922, -46.4272)
+shape = SubResource("BoxShape3D_6kun7")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge/AnimatableBody3D"]
+stream = ExtResource("5_witgh")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge/AnimatableBody3D"]
+stream = ExtResource("6_k1eai")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bathroom Door/Hinge" index="3" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+collision_layer = 9
+script = ExtResource("7_220ta")
+to_rotate = NodePath("..")
+to_match_rotate = NodePath(".")
+DOOR_OPEN_ROTATION = -96.0
+DOOR_OPENING_SPEED = 7.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Upper Bathroom Door/Hinge/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57455, 100.588, 43.3689)
+shape = SubResource("BoxShape3D_2eueu")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Upper Bathroom Door/Hinge/AnimatableBody3D"]
+stream = ExtResource("5_witgh")
+
+[node name="DoorClose" type="AudioStreamPlayer3D" parent="final_house_model/Node0/Upper Bathroom Door/Hinge/AnimatableBody3D"]
 stream = ExtResource("6_k1eai")
 
 [editable path="final_house_model"]
