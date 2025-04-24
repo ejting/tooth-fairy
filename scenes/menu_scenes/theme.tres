@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b5y6ikdrgasnb"]
+
+[ext_resource type="FontFile" uid="uid://djxgyjhns20dt" path="res://scenes/menu_scenes/Fredoka-Bold.ttf" id="1_ubuvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1wvc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6, 0, 0, 1)
+
+[resource]
+/colors/BorderColor = Color(0.596078, 0, 0, 1)
+/colors/FillColor = Color(0.976471, 0.913725, 0.913725, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_ubuvr")
+Button/styles/normal = SubResource("StyleBoxFlat_w1wvc")
