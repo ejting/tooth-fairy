@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kan4247dl0rp"]
+[gd_scene load_steps=3 format=3 uid="uid://kan4247dl0rp"]
 
 [ext_resource type="Script" path="res://scenes/menu_scenes/pause_menu.gd" id="1_04bwg"]
+[ext_resource type="Theme" uid="uid://b5y6ikdrgasnb" path="res://scenes/menu_scenes/theme.tres" id="2_hextu"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -33,22 +34,27 @@ layout_mode = 2
 [node name="Paused" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_hextu")
 text = "Paused"
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_hextu")
 text = "Resume"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_hextu")
 text = "Options"
 
 [node name="Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_hextu")
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_hextu")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
