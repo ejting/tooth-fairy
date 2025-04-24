@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ddb56yjb67n16"]
+[gd_scene load_steps=31 format=4 uid="uid://ddb56yjb67n16"]
 
 [ext_resource type="PackedScene" uid="uid://c32ryonl8t7k7" path="res://models/school_building/school_building.glb" id="1_xoify"]
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="2_p802r"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://duu5o3haxqt2m" path="res://models/foliage/locust_tree_pack_0.png" id="6_ysmhi"]
 [ext_resource type="Texture2D" uid="uid://d368f8u7fgm36" path="res://models/foliage/locust_tree_pack_1.png" id="7_w7oc8"]
 [ext_resource type="Shader" path="res://shaders/night_sky.gdshader" id="8_b6a0b"]
-[ext_resource type="PackedScene" uid="uid://dhavgnk2fcyju" path="res://models/roads/car.glb" id="9_p8skt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_74k6q"]
 
@@ -327,9 +326,6 @@ skeleton = NodePath("")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4vqb")
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("9_p8skt")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.95539, 0.099368, 6.43441)
 
 [node name="Trees" type="Node3D" parent="."]
 
