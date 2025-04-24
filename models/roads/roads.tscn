@@ -104,7 +104,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ut1sd")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dnh2u"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ukmrl"]
 _surfaces = [{
 "aabb": AABB(-12, 0, -24, 12, 0.299667, 24),
 "format": 34896613377,
@@ -134,7 +134,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//9z8AAP/////3PwAA//8AAPs/AABtVQAA+z/////////3P///AAD///c//v8AAAAA9z/+////AAD3P1TVJFX//xgBVNX/////GAFU1f//AAAYAVTVJFUAABgBqir/////GAGqKiRV//8YAaoqJFUAABgBqir//wAAGAGqKiRV////P1TVJFX///8/VNUkVQAA/z+qKiRVAAD/P1TV/////4Ms////////gyz+////AACDLFTV//8AAIMsAAD/////xSiqKv/////FKKoq//8AAMUoAAD//wAAxSiMfBj5i3wW+WZ9zPpofdD6c4PoBnOD6AZzg+gGc4PoBsn+mcDJ/pnAyf6ZwMn+mcA1AWU/NQFlPzUBZT81AWU/////f////3////9/////f3rW9ix61vYsetb2LHrW9ixtqMirbajIq22oyKttqMir")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_dnh2u")
+shadow_mesh = SubResource("ArrayMesh_ukmrl")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sbls2"]
 _surfaces = [{
