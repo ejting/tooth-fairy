@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://4mscn1mgvscu" path="res://scenes/menu_scenes/action_remap_button.tscn" id="2_b48p7"]
 
 [node name="OptionsMenu" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

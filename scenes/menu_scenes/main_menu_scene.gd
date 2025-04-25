@@ -7,7 +7,7 @@ func _ready():
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/menu_scenes/loading_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu_scenes/exposition_screen.tscn")
 
 
 
