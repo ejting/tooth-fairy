@@ -4,7 +4,7 @@ extends Control
 var loading_status : int
 var progress : Array[float]
 
-@onready var progress_bar : ProgressBar = $ProgressBar
+@onready var progress_bar : ProgressBar = $MarginContainer/VBoxContainer/ProgressBar
 
 func _ready():
 	if (!Globals.load_requested):
