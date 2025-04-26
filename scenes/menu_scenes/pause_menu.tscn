@@ -5,6 +5,7 @@
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,20 +45,6 @@ theme = ExtResource("2_hextu")
 theme_override_font_sizes/font_size = 24
 text = "Resume"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme = ExtResource("2_hextu")
-theme_override_font_sizes/font_size = 24
-text = "Options"
-
-[node name="Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme = ExtResource("2_hextu")
-theme_override_font_sizes/font_size = 24
-text = "Main Menu"
-
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -66,6 +53,4 @@ theme_override_font_sizes/font_size = 24
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

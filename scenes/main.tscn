@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=65 format=4 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/house/house_stairs.gd" id="4_qsex7"]
@@ -10,7 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="6_k1eai"]
 [ext_resource type="Resource" uid="uid://ucqdro5kp5cw" path="res://dialogue_objs/house/2_stairs.tres" id="7_0o7vn"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/door_interact_y.gd" id="7_220ta"]
+[ext_resource type="Script" path="res://scripts/interaction/specific/house/daughter_door.gd" id="11_6gsis"]
 [ext_resource type="Texture2D" uid="uid://cl7fs25jv1iqw" path="res://models/school_building/green-grass-1024x1024.png" id="11_wai3b"]
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="12_4j2xv"]
 [ext_resource type="Texture2D" uid="uid://b2ldc7q7de13f" path="res://models/suburbs/pack_-_retro_-_20_models_6.png" id="12_o304p"]
 [ext_resource type="Texture2D" uid="uid://bsyoy2qwqc845" path="res://models/foliage/locust_tree_pack_2.png" id="13_rr0k5"]
 [ext_resource type="Texture2D" uid="uid://ciln2o42781os" path="res://models/foliage/locust_tree_pack_3.png" id="14_41pdd"]
@@ -21,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cuj3w7oayt12x" path="res://models/suburbs/pack_-_retro_-_20_models_2.png" id="18_uf72b"]
 [ext_resource type="Texture2D" uid="uid://ja4n2efc38f" path="res://models/suburbs/pack_-_retro_-_20_models_1.png" id="19_wqsk1"]
 [ext_resource type="Texture2D" uid="uid://daxdko74sxm6w" path="res://models/suburbs/pack_-_retro_-_20_models_4.png" id="20_1wuhb"]
+[ext_resource type="AudioStream" uid="uid://3chgw7qph22f" path="res://sounds/birds-chirping-75156.mp3" id="22_d5aqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gc56"]
 shader = ExtResource("5_ba005")
@@ -68,6 +71,21 @@ size = Vector3(202.003, 98.4163, 7.60689)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6kun7"]
 size = Vector3(9.00162, 195.584, 81.1625)
+
+[sub_resource type="Resource" id="Resource_jl7a4"]
+script = ExtResource("12_4j2xv")
+name = "Thank you"
+self_thought = false
+line = "Thank you for the new teeth, Dad! "
+voice_line = 0
+dialouge_speed = 1.0
+
+[sub_resource type="Resource" id="Resource_lidjd"]
+script = ExtResource("5_3dwrw")
+description = ""
+dialogue = Array[ExtResource("12_4j2xv")]([SubResource("Resource_jl7a4")])
+response_options_available = true
+response_button_titles = Array[String](["Of course, my darling. Anything for you.", ""])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2eueu"]
 size = Vector3(8.32697, 202.175, 83.0646)
@@ -468,13 +486,10 @@ volume_db = -25.0
 stream = ExtResource("6_k1eai")
 volume_db = -25.0
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge" index="3" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge" index="3"]
 collision_layer = 9
-script = ExtResource("7_220ta")
-to_rotate = NodePath("..")
-to_match_rotate = NodePath(".")
-DOOR_OPEN_ROTATION = -95.0
-DOOR_OPENING_SPEED = 7.5
+script = ExtResource("11_6gsis")
+dialogue_objects = Array[ExtResource("5_3dwrw")]([SubResource("Resource_lidjd")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13371, 97.2922, -46.4272)
@@ -1111,5 +1126,17 @@ mesh = SubResource("PlaneMesh_kbl02")
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Ceilings"]
 transform = Transform3D(3.20798, 0, 0, 0, -1, 2.04812e-07, 0, -8.74228e-08, -2.34278, 6.66939, 0.338228, -7.31971)
 mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94513, 0, 6.2116)
+stream = ExtResource("22_d5aqh")
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34732, 0, 6.2116)
+stream = ExtResource("22_d5aqh")
+autoplay = true
 
 [editable path="final_house_model"]
