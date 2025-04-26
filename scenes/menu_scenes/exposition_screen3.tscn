@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbcf7j4f8hc4t"]
+
+[ext_resource type="Theme" uid="uid://b5y6ikdrgasnb" path="res://scenes/menu_scenes/theme.tres" id="1_oayns"]
+[ext_resource type="Script" path="res://scenes/menu_scenes/exposition_screen.gd" id="2_s1vc6"]
+[ext_resource type="AudioStream" uid="uid://dn8pjfgnu0hr8" path="res://sounds/Horroriffic.mp3" id="3_prv2h"]
+
+[sub_resource type="Gradient" id="Gradient_yeg1j"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(0.427595, 0, 0.0512513, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ld44"]
+gradient = SubResource("Gradient_yeg1j")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="ExpositionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oayns")
+script = ExtResource("2_s1vc6")
+title = "Chapter 3: The Principal"
+text_content = Array[String](["I’m finding it harder to keep a grip on my sanity. I’m so close to completing my goal but I’ve had to do so much to get here.", "The last person who failed my daughter was her principal, who neglected to even acknowledge or show the tiniest inkling of care for her plight. I wonder how many other kids he swept under the rug for the sake of “appearances.”"])
+next_scene = "res://scenes/menu_scenes/loading_screen.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6ld44")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -187.0
+offset_right = 301.5
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Prologue"
+
+[node name="Spacer2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Text Body" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+text = "Text body"
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Key Prompt" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press [F] to continue."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_prv2h")
+autoplay = true

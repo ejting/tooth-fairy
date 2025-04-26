@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://dwv3bixcn7qi7"]
+[gd_scene load_steps=65 format=4 uid="uid://dwv3bixcn7qi7"]
 
 [ext_resource type="PackedScene" uid="uid://ckrexfxacvftu" path="res://scenes/player_character.tscn" id="1_uuefp"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/house/house_stairs.gd" id="4_qsex7"]
@@ -10,16 +10,20 @@
 [ext_resource type="AudioStream" uid="uid://bwtuv8kk5vm7s" path="res://sounds/door-1-close.wav" id="6_k1eai"]
 [ext_resource type="Resource" uid="uid://ucqdro5kp5cw" path="res://dialogue_objs/house/2_stairs.tres" id="7_0o7vn"]
 [ext_resource type="Script" path="res://scripts/interaction/specific/door_interact_y.gd" id="7_220ta"]
+[ext_resource type="Script" path="res://scripts/interaction/specific/house/daughter_door.gd" id="11_6gsis"]
 [ext_resource type="Texture2D" uid="uid://cl7fs25jv1iqw" path="res://models/school_building/green-grass-1024x1024.png" id="11_wai3b"]
+[ext_resource type="Script" path="res://scripts/interaction/DialogueInstance.gd" id="12_4j2xv"]
 [ext_resource type="Texture2D" uid="uid://b2ldc7q7de13f" path="res://models/suburbs/pack_-_retro_-_20_models_6.png" id="12_o304p"]
 [ext_resource type="Texture2D" uid="uid://bsyoy2qwqc845" path="res://models/foliage/locust_tree_pack_2.png" id="13_rr0k5"]
 [ext_resource type="Texture2D" uid="uid://ciln2o42781os" path="res://models/foliage/locust_tree_pack_3.png" id="14_41pdd"]
 [ext_resource type="Texture2D" uid="uid://duu5o3haxqt2m" path="res://models/foliage/locust_tree_pack_0.png" id="15_sqtcg"]
 [ext_resource type="Texture2D" uid="uid://d368f8u7fgm36" path="res://models/foliage/locust_tree_pack_1.png" id="16_1piw5"]
 [ext_resource type="PackedScene" uid="uid://bwai1lhp5m0gu" path="res://models/house_model/modular_roof_shingles.glb" id="17_ecbmu"]
+[ext_resource type="Texture2D" uid="uid://bafexj0oaik3e" path="res://models/final_house/the_final_house_26.jpg" id="18_c7rnn"]
 [ext_resource type="Texture2D" uid="uid://cuj3w7oayt12x" path="res://models/suburbs/pack_-_retro_-_20_models_2.png" id="18_uf72b"]
 [ext_resource type="Texture2D" uid="uid://ja4n2efc38f" path="res://models/suburbs/pack_-_retro_-_20_models_1.png" id="19_wqsk1"]
 [ext_resource type="Texture2D" uid="uid://daxdko74sxm6w" path="res://models/suburbs/pack_-_retro_-_20_models_4.png" id="20_1wuhb"]
+[ext_resource type="AudioStream" uid="uid://3chgw7qph22f" path="res://sounds/birds-chirping-75156.mp3" id="22_d5aqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gc56"]
 shader = ExtResource("5_ba005")
@@ -67,6 +71,21 @@ size = Vector3(202.003, 98.4163, 7.60689)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6kun7"]
 size = Vector3(9.00162, 195.584, 81.1625)
+
+[sub_resource type="Resource" id="Resource_jl7a4"]
+script = ExtResource("12_4j2xv")
+name = "Thank you"
+self_thought = false
+line = "Thank you for the new teeth, Dad! "
+voice_line = 0
+dialouge_speed = 1.0
+
+[sub_resource type="Resource" id="Resource_lidjd"]
+script = ExtResource("5_3dwrw")
+description = ""
+dialogue = Array[ExtResource("12_4j2xv")]([SubResource("Resource_jl7a4")])
+response_options_available = true
+response_button_titles = Array[String](["Of course, my darling. Anything for you.", ""])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2eueu"]
 size = Vector3(8.32697, 202.175, 83.0646)
@@ -271,6 +290,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1nlen")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4l7x"]
+albedo_texture = ExtResource("18_c7rnn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k0wmn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p002p"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ci0i"]
 size = Vector3(0.656067, 6.13611, 14.7774)
 
@@ -385,6 +411,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bdxox")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_kbl02"]
+
 [node name="Main" type="Node3D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_uuefp")]
@@ -403,6 +431,9 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.85123, -2.45246, -21
 
 [node name="Node11" parent="final_house_model/Node0" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, -11.1871, 4.9165)
+
+[node name="Node453" parent="final_house_model/Node0" index="377"]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="final_house_model/Node0/Node1164" index="0" node_paths=PackedStringArray("to_move")]
 collision_layer = 9
@@ -455,13 +486,10 @@ volume_db = -25.0
 stream = ExtResource("6_k1eai")
 volume_db = -25.0
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge" index="3" node_paths=PackedStringArray("to_rotate", "to_match_rotate")]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge" index="3"]
 collision_layer = 9
-script = ExtResource("7_220ta")
-to_rotate = NodePath("..")
-to_match_rotate = NodePath(".")
-DOOR_OPEN_ROTATION = -95.0
-DOOR_OPENING_SPEED = 7.5
+script = ExtResource("11_6gsis")
+dialogue_objects = Array[ExtResource("5_3dwrw")]([SubResource("Resource_lidjd")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="final_house_model/Node0/Upper Bedroom Door/Hinge/AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13371, 97.2922, -46.4272)
@@ -881,6 +909,18 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 6.27257, 3.81989, -6
 [node name="Roof Shingles22" parent="Roofing" instance=ExtResource("17_ecbmu")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 7.5122, 3.81989, -6.07076)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roofing"]
+transform = Transform3D(0.56854, 5.62265e-16, -0.0709407, -0.175058, 1.82608e-15, -0.230396, -2.96999e-23, 1, 4.6061e-16, 0.829705, 0.406744, -2.16788)
+material_override = SubResource("StandardMaterial3D_f4l7x")
+mesh = SubResource("PlaneMesh_k0wmn")
+surface_material_override/0 = SubResource("StandardMaterial3D_p002p")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Roofing"]
+transform = Transform3D(0.53932, -8.06282e-16, 0.101728, 0.251031, 1.73223e-15, -0.218555, 7.37008e-24, 1, 4.6061e-16, -0.0511622, 0.406744, -2.15979)
+material_override = SubResource("StandardMaterial3D_f4l7x")
+mesh = SubResource("PlaneMesh_k0wmn")
+surface_material_override/0 = SubResource("StandardMaterial3D_p002p")
+
 [node name="Bounds" type="Node3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bounds"]
@@ -1060,5 +1100,43 @@ transform = Transform3D(-14.9975, 0, 0.276181, 0, 15, 0, -0.276181, 0, -14.9975,
 [node name="ISL_House_02_geo_V2_SHD_House_02_0" type="MeshInstance3D" parent="Houses/ISL_House_02_geo_V10"]
 mesh = SubResource("ArrayMesh_5ogfm")
 skeleton = NodePath("")
+
+[node name="Ceilings" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(1, 0, 0, 0, -1, 9.84623e-08, 0, -8.74228e-08, -1.12628, 0.40723, 0.338228, -3.36088)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(3.20798, 0, 0, 0, -1, 2.95336e-07, 0, -8.74228e-08, -3.37825, 0.40723, 0.338228, -7.69337)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(3.20798, 0, 0, 0, -1, 2.95336e-07, 0, -8.74228e-08, -3.37825, 0.40723, 3.38873, -7.69337)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(3.20798, 0, 0, 0, -1, 2.95336e-07, 0, -8.74228e-08, -3.37825, 4.71805, 3.38873, -8.41179)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(1.91478, 0, 0, 0, -1, 2.54245e-07, 0, -8.74228e-08, -2.90823, 0.437787, 3.38873, -12.5781)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Ceilings"]
+transform = Transform3D(3.20798, 0, 0, 0, -1, 2.04812e-07, 0, -8.74228e-08, -2.34278, 6.66939, 0.338228, -7.31971)
+mesh = SubResource("PlaneMesh_kbl02")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94513, 0, 6.2116)
+stream = ExtResource("22_d5aqh")
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34732, 0, 6.2116)
+stream = ExtResource("22_d5aqh")
+autoplay = true
 
 [editable path="final_house_model"]

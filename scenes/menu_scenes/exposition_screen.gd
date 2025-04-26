@@ -11,6 +11,9 @@ var text_index: int = 0
 func _ready():
 	text_body.text = text_content[text_index]
 	title_label.text = title
+	if !Globals.load_requested:
+		ResourceLoader.load_threaded_request(Globals.target_scene_path)
+		Globals.load_requested = true
 
 func _process(delta):
 	if (Input.is_action_just_pressed("interact")):
