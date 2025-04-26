@@ -15,7 +15,7 @@ var sanity : int
 
 #If the player is in a loading screen or the main menu, this is the scene that is loading in.
 #If the player is not in a loading screen, this is the scene they are currently in.
-var target_scene_path: String = "res://scenes/main.tscn"
+var target_scene_path: String = "res://scenes/dentist_building_scene.tscn"
 
 #true if the target scene has already started loading (such as in the main menu)
 var load_requested: bool
